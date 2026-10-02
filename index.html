@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Rosa em Dia · Alumni</title>
-<meta name="description" content="Outubro Rosa na Alumni by Better: o Ali lembra você do autoexame, da consulta e de cuidar de quem você ama.">
+<meta name="description" content="Outubro Rosa na Alumni by Better: a Alia lembra você do autoexame, da consulta e de cuidar de quem você ama.">
 <meta name="theme-color" content="#FFF6FA">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 6c-9 0-15 7-15 15 0 7 4 13 9 20L14 58l8 2 10-15 10 15 8-2-12-17c5-7 9-13 9-20 0-8-6-15-15-15zm0 9c4 0 6 3 6 6 0 4-3 9-6 13-3-4-6-9-6-13 0-3 2-6 6-6z' fill='%23F062A0'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,7 +22,7 @@
 html{-webkit-text-size-adjust:100%}
 body{font-family:Manrope,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;min-height:100vh;overflow-x:hidden}
 button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
-.wrap{max-width:520px;margin:0 auto;padding:0 16px calc(110px + env(safe-area-inset-bottom))}
+.wrap{max-width:520px;margin:0 auto;padding:0 16px calc(270px + env(safe-area-inset-bottom))}
 h1,h2{font-weight:800;letter-spacing:-.02em}
 h1 em,h2 em{font-style:normal;color:var(--rosa)}
 
@@ -41,36 +41,39 @@ h1 em,h2 em{font-style:normal;color:var(--rosa)}
 .hero h1{font-size:36px;line-height:1.08;margin-bottom:10px}
 .hero p{font-size:15.5px;color:var(--muted);max-width:34ch}
 
-/* ===== Ali ===== */
-.ali-box{display:grid;grid-template-columns:132px 1fr;align-items:end;gap:6px;margin-top:10px;position:relative}
-.ali-palco{position:relative;height:178px;cursor:pointer}
-.ali-palco::after{content:"";position:absolute;left:22px;right:22px;bottom:2px;height:12px;border-radius:50%;background:rgba(14,31,77,.12);filter:blur(3px);animation:sombra 3.2s ease-in-out infinite}
-.ali-mov{position:absolute;inset:0;transform-origin:50% 100%}
-.ali-resp{position:absolute;inset:0;transform-origin:50% 100%;animation:respira 3.2s ease-in-out infinite}
-.ali-corpo{position:absolute;left:50%;transform:translateX(-50%)}
-.ali-corpo img{position:absolute;pointer-events:none;user-select:none;-webkit-user-drag:none}
-#aliImg{inset:0;width:100%;height:100%}
-#aliBoca{display:none}
+/* ===== Alia (anda pelo app, acima da barra de navegação) ===== */
+#alia{position:fixed;left:0;bottom:calc(84px + env(safe-area-inset-bottom));width:0;height:150px;z-index:9;transform:translateX(-200px);pointer-events:none}
+#alia::after{content:"";position:absolute;left:-34px;width:68px;bottom:2px;height:11px;border-radius:50%;background:rgba(14,31,77,.14);filter:blur(3px)}
+.alia-vira,.alia-mov,.alia-passo,.alia-resp{position:absolute;left:0;bottom:0;width:0;height:100%;transform-origin:50% 100%}
+.alia-resp{animation:respira 3.2s ease-in-out infinite}
+.alia-corpo{position:absolute;left:0;transform:translateX(-50%);cursor:pointer;pointer-events:auto}
+.alia-corpo img{position:absolute;pointer-events:none;user-select:none;-webkit-user-drag:none}
+#aliaImg{inset:0;width:100%;height:100%}
+#aliaBoca{display:none}
 @keyframes respira{50%{transform:scale(1.012,.988)}}
-@keyframes sombra{50%{transform:scaleX(.94)}}
-.ali-mov.pula{animation:pula .6s cubic-bezier(.3,.7,.4,1)}
-@keyframes pula{0%{transform:scale(1.06,.9)}30%{transform:translateY(-26px) scale(.96,1.05)}60%{transform:translateY(0) scale(1.05,.93)}80%{transform:scale(.99,1.02)}100%{transform:none}}
-.ali-mov.troca{animation:troca .32s ease-out}
+.alia-mov.andando .alia-passo{animation:passo .36s ease-in-out infinite}
+.alia-mov.correndo .alia-passo{animation:corre .24s ease-in-out infinite}
+@keyframes passo{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-7px) rotate(2.5deg)}}
+@keyframes corre{0%,100%{transform:translateY(0) rotate(5deg)}50%{transform:translateY(-11px) rotate(8deg)}}
+.alia-mov.pula{animation:pula .6s cubic-bezier(.3,.7,.4,1)}
+@keyframes pula{0%{transform:scale(1.06,.9)}30%{transform:translateY(-30px) scale(.96,1.05)}60%{transform:translateY(0) scale(1.05,.93)}80%{transform:scale(.99,1.02)}100%{transform:none}}
+.alia-mov.troca{animation:troca .32s ease-out}
 @keyframes troca{0%{transform:scale(1.04,.94)}60%{transform:scale(.98,1.03)}100%{transform:none}}
-.ali-mov.entra{animation:entra .7s cubic-bezier(.2,.9,.3,1.2)}
-@keyframes entra{from{transform:translateX(-90px) rotate(-8deg);opacity:0}to{transform:none;opacity:1}}
-.laco{position:absolute;left:-8px;top:-14px;width:28px;height:28px;z-index:2;transform:rotate(14deg);animation:laco 3.2s ease-in-out infinite}
-@keyframes laco{50%{transform:rotate(4deg) translateY(-3px)}}
+.alia-mov.freia{animation:freia .45s ease-out}
+@keyframes freia{0%{transform:rotate(-7deg)}55%{transform:rotate(3deg)}100%{transform:none}}
 
-.balao{position:relative;background:#fff;border-radius:20px 20px 20px 6px;padding:14px 16px 12px;margin-bottom:58px;box-shadow:0 10px 26px -16px rgba(200,50,122,.55);min-height:76px}
-.balao::before{content:"";position:absolute;left:-8px;bottom:12px;border:9px solid transparent;border-right-color:#fff;border-left:0}
-.balao p{font-size:14.5px;font-weight:600;line-height:1.42;min-height:42px}
+.balao{position:fixed;bottom:calc(84px + env(safe-area-inset-bottom) + 166px);z-index:11;background:#fff;border-radius:20px;padding:14px 16px 12px;box-shadow:0 14px 34px -14px rgba(200,50,122,.55),0 0 0 1px var(--line);opacity:0;transform:translateY(8px) scale(.96);transform-origin:var(--seta,50%) 100%;pointer-events:none;transition:opacity .2s,transform .25s}
+.balao.on{opacity:1;transform:none;pointer-events:auto}
+.balao::after{content:"";position:absolute;left:calc(var(--seta,50%) - 9px);bottom:-9px;border:9px solid transparent;border-top-color:#fff;border-bottom:0}
+.balao p{font-size:14.5px;font-weight:600;line-height:1.42}
 .balao .ops{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
 .balao .ops:empty{display:none}
+.laco{position:absolute;left:-9px;top:-13px;width:26px;height:26px;transform:rotate(-14deg)}
 .op{font-size:13px;font-weight:700;background:var(--rosa-xl);color:var(--rosa-d);padding:7px 12px;border-radius:99px;transition:.15s}
 .op:hover{background:var(--rosa);color:#fff}
-.som{position:absolute;right:8px;top:-12px;width:30px;height:30px;border-radius:50%;background:var(--azul);color:#fff;font-size:13px;display:grid;place-items:center;box-shadow:0 4px 10px -4px rgba(0,51,135,.6)}
-.dica-som{position:absolute;right:42px;top:-11px;font-size:11px;font-weight:700;background:var(--azul);color:#fff;padding:4px 9px;border-radius:99px;white-space:nowrap;animation:pisca 1.6s ease-in-out infinite}
+.som-top{display:flex;align-items:center;gap:8px}
+.som{width:32px;height:32px;border-radius:50%;background:var(--azul);color:#fff;font-size:13px;display:grid;place-items:center;box-shadow:0 4px 10px -4px rgba(0,51,135,.6)}
+.dica-som{position:fixed;top:62px;right:16px;font-size:11px;font-weight:700;background:var(--azul);color:#fff;padding:5px 10px;border-radius:99px;white-space:nowrap;animation:pisca 1.6s ease-in-out infinite;z-index:12}
 @keyframes pisca{50%{opacity:.55}}
 
 /* cards */
@@ -177,22 +180,8 @@ nav button.on{background:var(--rosa-xl);color:var(--rosa-d)}
 <div class="wrap">
   <header class="top">
     <img src="img/alumni.svg" alt="Alumni by Better">
-    <span class="pill"><svg><use href="#laco"/></svg>Outubro Rosa</span>
+    <div class="som-top"><span class="pill"><svg><use href="#laco"/></svg>Outubro Rosa</span><button class="som" id="somBtn" aria-label="Som da Alia">🔊</button></div>
   </header>
-
-  <!-- Ali (muda de tela junto com a navegação) -->
-  <div class="ali-box" id="aliBox">
-    <div class="ali-palco" id="aliPalco" title="Cutuque o Ali">
-      <div class="ali-mov" id="aliMov"><div class="ali-resp"><div class="ali-corpo" id="aliCorpo"><img id="aliImg" alt="Ali, o mascote da Alumni"><img id="aliBoca" alt=""></div></div></div>
-    </div>
-    <div class="balao">
-      <svg class="laco"><use href="#laco"/></svg>
-      <button class="som" id="somBtn" aria-label="Som do Ali">🔊</button>
-      <span class="dica-som" id="dicaSom">toque pra ouvir o Ali</span>
-      <p id="aliTxt"></p>
-      <div class="ops" id="aliOps"></div>
-    </div>
-  </div>
 
   <!-- INÍCIO -->
   <section class="screen on" id="s-inicio">
@@ -215,6 +204,7 @@ nav button.on{background:var(--rosa-xl);color:var(--rosa-d)}
 
   <!-- AUTOEXAME -->
   <section class="screen" id="s-autoexame">
+    <div class="hero"><h1>Autoexame em <em>3 passos.</em></h1><p>No banho ou na hora de trocar de roupa. A ideia é conhecer o seu normal, sem pressa e sem medo.</p></div>
     <div class="card">
       <div class="step"><div class="num">1</div><div><b>Olhe</b><p>Na frente do espelho, braços para baixo e depois para cima. Repare no formato, na pele e nos mamilos.</p></div></div>
       <div class="step"><div class="num">2</div><div><b>Sinta</b><p>Com a ponta dos dedos, faça pequenos círculos pela mama inteira, incluindo a região da axila. No banho, com a pele molhada, fica mais fácil.</p></div></div>
@@ -250,6 +240,7 @@ nav button.on{background:var(--rosa-xl);color:var(--rosa-d)}
 
   <!-- LEMBRETE -->
   <section class="screen" id="s-lembrete">
+    <div class="hero"><h1>Seu lembrete <em>do mês.</em></h1><p>Um dia fixo na agenda para o autoexame e um aviso por ano para a consulta.</p></div>
     <div class="card">
       <div class="kicker">Autoexame do mês</div>
       <h2>Escolha <em>o seu dia.</em></h2>
@@ -272,6 +263,7 @@ nav button.on{background:var(--rosa-xl);color:var(--rosa-d)}
 
   <!-- MITO OU VERDADE -->
   <section class="screen" id="s-mito">
+    <div class="hero"><h1>Mito ou <em>verdade?</em></h1><p>Sete cartas para descomplicar o assunto. Chute e veja.</p></div>
     <div class="deck" id="deck"></div>
     <div class="score"><div class="dots" id="dots"></div><span id="scoreTxt">0 acertos</span></div>
     <div class="row" id="qBtns"></div>
@@ -279,6 +271,7 @@ nav button.on{background:var(--rosa-xl);color:var(--rosa-d)}
 
   <!-- LEMBRAR ALGUÉM -->
   <section class="screen" id="s-lembrar">
+    <div class="hero"><h1>Lembre <em>quem você ama.</em></h1><p>Mãe, irmã, amiga, parceira, colega de time. Às vezes o lembrete que faltava vem de você.</p></div>
     <div class="card">
       <div class="kicker">Escolha o jeito</div>
       <div class="tones" id="tones"></div>
@@ -293,6 +286,18 @@ nav button.on{background:var(--rosa-xl);color:var(--rosa-d)}
   </section>
 
   <p class="note">Ação de conscientização da Alumni by Better. Este app não substitui avaliação médica; na dúvida, procure seu plano de saúde ou a Unidade Básica de Saúde mais próxima.</p>
+</div>
+
+<span class="dica-som" id="dicaSom">toque pra ouvir a Alia</span>
+<div id="alia" aria-label="Alia, a mascote da Alumni no Outubro Rosa">
+  <div class="alia-vira" id="aliaVira"><div class="alia-mov" id="aliaMov"><div class="alia-passo"><div class="alia-resp">
+    <div class="alia-corpo" id="aliaCorpo" title="Cutuque a Alia"><img id="aliaImg" alt="Alia"><img id="aliaBoca" alt=""></div>
+  </div></div></div></div>
+</div>
+<div class="balao" id="balao" role="status" aria-live="polite">
+  <svg class="laco"><use href="#laco"/></svg>
+  <p id="aliTxt"></p>
+  <div class="ops" id="aliOps"></div>
 </div>
 
 <nav id="nav">
@@ -311,24 +316,24 @@ const store = {
 };
 const APP_URL = location.origin + location.pathname;
 
-/* ================= ALI ================= */
-// poses: altura total e base dos pés (px da imagem), para todas ficarem do mesmo tamanho e no chão
-const POSES = {"coracao":[290,561,560.4,70.4,110,143.2,68.4,9.6],"aceno":[384,584,560.8,165.2,118.8,137.6,80,9.6],"apontaBaixo":[385,588,560.8,141.2,116,136.4,77.6,9.6],"joinha":[372,579,560.4,85.6,108.4,140,86.4,9.6],"pensa":[258,605,582.4,62.4,140.8,137.6,82,9.6],"abre":[536,583,560.8,230,118.4,138,79.6,9.6],"dedo":[391,586,562.8,153.6,108.4,132.4,83.2,9.6]}; // w, h, base dos pés, boca x/y/w/h/lábio
-const CORPO = 168; // altura do corpo em px na tela
-const POSE_DA_FALA = {oi:'aceno',pergunta:'abre',jaFiz:'joinha',aindaNao:'coracao',comoFaz:'apontaBaixo',autoexame:'apontaBaixo',cronometro:'dedo',terminou:'joinha',lembrete:'apontaBaixo',combinado:'joinha',mito:'pensa',acertou:'abre',errou:'pensa',fimQuiz:'coracao',lembrar:'coracao',enviou:'abre'};
-const cache = {};
-Object.keys(POSES).forEach(p => ['', '-boca', '-fechada'].forEach(v => { const i = new Image(); i.src = `img/ali/${p}${v}.webp`; cache[p+v] = i }));
+/* ================= ALIA ================= */
+// Arte provisória: poses do Ali até chegarem as da Alia (mesmo formato: corpo, -fechada sem boca, -boca por cima)
+const ARTE = 'img/ali/';
+// w, h, base dos pés, boca x/y/w/h/lábio (px da imagem)
+const POSES = {"coracao":[290,561,560.4,70.4,110,143.2,68.4,9.6],"aceno":[384,584,560.8,165.2,118.8,137.6,80,9.6],"apontaBaixo":[385,588,560.8,141.2,116,136.4,77.6,9.6],"joinha":[372,579,560.4,85.6,108.4,140,86.4,9.6],"pensa":[258,605,582.4,62.4,140.8,137.6,82,9.6],"abre":[536,583,560.8,230,118.4,138,79.6,9.6],"dedo":[391,586,562.8,153.6,108.4,132.4,83.2,9.6],"anda":[284,562,561.2,82,104.8,136.8,80.4,9.6],"corre":[378,562,560.8,147.2,130.8,148.8,80,9.6],"andaJoinha":[346,563,560.8,158.8,116,134,82,9.6],"vibra":[466,618,601.2,149.2,130,135.6,84.8,9.6]};
+const CORPO = 150, ESC = CORPO / 561;
+const POSE_DA_FALA = {oi:'aceno',pergunta:'abre',jaFiz:'joinha',aindaNao:'coracao',comoFaz:'apontaBaixo',autoexame:'apontaBaixo',cronometro:'dedo',terminou:'vibra',lembrete:'apontaBaixo',combinado:'joinha',mito:'pensa',acertou:'vibra',errou:'pensa',fimQuiz:'coracao',lembrar:'coracao',enviou:'abre',cutuca1:'vibra',cutuca2:'aceno',cutuca3:'coracao'};
+const PARADA = 'coracao';
+Object.keys(POSES).forEach(p => ['', '-boca', '-fechada'].forEach(v => { const i = new Image(); i.src = `${ARTE}${p}${v}.webp` }));
 
-const img = $('#aliImg'), bocaImg = $('#aliBoca'), corpo = $('#aliCorpo'), mov = $('#aliMov');
-const ESC = CORPO / 561;
-let pose = 'aceno', falando = null;
-// falando = null: sorriso parado; 0–1: boca aberta (peça da boca por cima do rosto sem boca)
+const alia = $('#alia'), vira = $('#aliaVira'), mov = $('#aliaMov'), img = $('#aliaImg'), bocaImg = $('#aliaBoca'), corpo = $('#aliaCorpo'), balao = $('#balao');
+let pose = null, falando = null, x = -200, ocupada = true;
 function mostra(p, abre=null){
-  if (p !== pose){ mov.classList.remove('troca'); void mov.offsetWidth; mov.classList.add('troca') }
+  if (pose && p !== pose){ mov.classList.remove('troca'); void mov.offsetWidth; mov.classList.add('troca') }
   const [w, h, base, bx, by, bw, bh, lab] = POSES[p];
   if (p !== pose || (abre===null) !== (falando===null)){
-    img.src = `img/ali/${p}${abre===null ? '' : '-fechada'}.webp`;
-    bocaImg.src = `img/ali/${p}-boca.webp`;
+    img.src = `${ARTE}${p}${abre===null ? '' : '-fechada'}.webp`;
+    bocaImg.src = `${ARTE}${p}-boca.webp`;
   }
   pose = p; falando = abre;
   Object.assign(corpo.style, {width:w*ESC+'px', height:h*ESC+'px', bottom:(-(h-base)*ESC + 6)+'px'});
@@ -338,7 +343,49 @@ function mostra(p, abre=null){
     Object.assign(bocaImg.style, {left:bx*ESC+'px', top:by*ESC+'px', width:bw*ESC+'px', height:bh*ESC+'px', transformOrigin:`50% ${lab*ESC}px`, transform:`scaleY(${k})`});
   }
 }
-function anima(c){ mov.classList.remove(c); void mov.offsetWidth; mov.classList.add(c); setTimeout(() => mov.classList.remove(c), 800) }
+function anima(c){ ['pula','troca','freia'].forEach(k => mov.classList.remove(k)); void mov.offsetWidth; mov.classList.add(c); setTimeout(() => mov.classList.remove(c), 700) }
+
+// lugares onde ela para, dentro da coluna do app
+function coluna(){ const vw = innerWidth, w = Math.min(520, vw), l = (vw - w)/2 + 16; return {l, r: l + w - 32} }
+const LUGAR = {
+  centro: () => { const c = coluna(); return c.l + (c.r - c.l) * .3 },
+  canto:  () => coluna().r - 46,
+  foraEsq: () => -140,
+  foraDir: () => innerWidth + 140,
+};
+let passos = null;
+const posAtual = () => new DOMMatrix(getComputedStyle(alia).transform).m41;
+function poe(nx){ passos?.cancel(); passos = null; x = nx; alia.style.transform = `translateX(${nx}px)` }
+function andaPara(alvo, correndo=false){
+  return new Promise(res => {
+    const de = passos ? posAtual() : x;
+    passos?.cancel(); passos = null;
+    const dist = alvo - de;
+    if (Math.abs(dist) < 4){ poe(alvo); return res() }
+    vira.style.transform = dist < 0 ? 'scaleX(-1)' : '';
+    mostra(correndo ? 'corre' : 'anda');
+    mov.classList.toggle('andando', !correndo); mov.classList.toggle('correndo', correndo);
+    const dur = Math.max(320, Math.abs(dist) / (correndo ? 480 : 190) * 1000);
+    x = alvo;
+    const a = passos = alia.animate([{transform:`translateX(${de}px)`},{transform:`translateX(${alvo}px)`}], {duration:dur, easing:correndo ? 'cubic-bezier(.4,0,.3,1)' : 'linear'});
+    a.onfinish = () => {
+      if (passos !== a) return;
+      passos = null; alia.style.transform = `translateX(${alvo}px)`;
+      mov.classList.remove('andando','correndo'); vira.style.transform = '';
+      if (correndo) anima('freia');
+      res();
+    };
+  });
+}
+function posBalao(){
+  const c = coluna(), bw = Math.min(300, c.r - c.l);
+  const left = Math.max(c.l, Math.min(c.r - bw, x - bw * .3));
+  balao.style.width = bw + 'px'; balao.style.left = left + 'px';
+  balao.style.setProperty('--seta', Math.max(22, Math.min(bw - 22, x - left)) + 'px');
+}
+const mostraBalao = () => { posBalao(); balao.classList.add('on') };
+const escondeBalao = () => balao.classList.remove('on');
+addEventListener('resize', () => { poe(Math.min(x, LUGAR.canto())); if (balao.classList.contains('on')) posBalao() });
 
 // voz por WebAudio (o navegador só libera depois do primeiro toque)
 let ctx = null, buffers = {}, fonte = null, mudo = store.get('mudo', false), liberado = false, pendente = null;
@@ -355,22 +402,26 @@ function libera(){
   liberado = true;
   try { ctx = new (window.AudioContext || window.webkitAudioContext)(); ctx.resume() } catch(e){}
   pintaSom();
-  if (pendente && !mudo){ const p = pendente; pendente = null; fala(p.id, p.depois, true) }
+  if (pendente && !mudo){ const p = pendente; pendente = null; if (p.meu === falaId) fala(p.meu, p.id, p.depois, true) }
 }
-['pointerdown','keydown'].forEach(ev => document.addEventListener(ev, libera, {once:false, capture:true}));
+['pointerdown','keydown'].forEach(ev => document.addEventListener(ev, libera, {capture:true}));
 somBtn.onclick = e => { e.stopPropagation(); mudo = !mudo; store.set('mudo', mudo); if (mudo && fonte){ try{fonte.stop()}catch(_){} } pintaSom() };
 
 let falaId = 0, timers = [];
 const limpa = () => { timers.forEach(clearTimeout); timers = []; if (fonte){ try{ fonte.onended = null; fonte.stop() }catch(_){} fonte = null } };
-async function fala(id, depois, repetir){
+// diz: vai até o centro (ou fala de onde está) e fala; sem continuação, volta pro canto
+async function diz(id, depois, {ficar=false}={}){
+  const meu = ++falaId; limpa(); ocupada = true;
+  if (!ficar && Math.abs(x - LUGAR.centro()) > 12){ escondeBalao(); await andaPara(LUGAR.centro()); if (meu !== falaId) return }
+  fala(meu, id, depois);
+}
+async function fala(meu, id, depois, repetir){
   const f = ALI_VOZ[id]; if (!f) return;
-  limpa(); const meu = ++falaId;
-  const p = POSE_DA_FALA[id] || 'coracao';
   if (!repetir) $('#aliOps').innerHTML = '';
-  mostra(p, 0);
+  mostra(POSE_DA_FALA[id] || PARADA, 0);
   const txt = $('#aliTxt'), dur = f.fim * 1000;
-  txt.textContent = '';
-  // digita no ritmo da fala
+  mostraBalao();
+  txt.style.minHeight = ''; txt.textContent = f.fala; txt.style.minHeight = txt.offsetHeight + 'px'; txt.textContent = '';
   const chars = [...f.fala], passo = Math.max(18, Math.min(45, dur / chars.length));
   chars.forEach((c, i) => timers.push(setTimeout(() => { if (meu===falaId) txt.textContent += c }, i*passo)));
   let t0 = performance.now(), usaAudio = false;
@@ -379,40 +430,70 @@ async function fala(id, depois, repetir){
       const buf = await carrega(id); if (meu !== falaId) return;
       fonte = ctx.createBufferSource(); fonte.buffer = buf; fonte.connect(ctx.destination); fonte.start(); usaAudio = true; t0 = performance.now();
     } catch(e){}
-  } else if (!liberado) pendente = {id, depois};
-  // boca acompanha o volume da voz
+  } else if (!liberado) pendente = {meu, id, depois};
   const tick = () => {
     if (meu !== falaId) return;
     const t = (performance.now() - t0) / 1000, q = Math.floor(t * 30);
     if (t < f.fim){
-      const v = usaAudio ? (f.env[q] || 0) / 100 : Math.max(0, Math.sin(t*13)) * .8;
-      mostra(pose, v);
+      mostra(pose, usaAudio ? (f.env[q] || 0) / 100 : Math.max(0, Math.sin(t*13)) * .8);
       requestAnimationFrame(tick);
     } else {
       mostra(pose, null);
       if (depois) timers.push(setTimeout(() => meu===falaId && depois(), 350));
+      else timers.push(setTimeout(() => meu===falaId && descansa(meu), 2600));
     }
   };
   requestAnimationFrame(tick);
 }
 function opcoes(lista){
   $('#aliOps').innerHTML = lista.map((o, i) => `<button class="op" data-op="${i}">${o[0]}</button>`).join('');
+  posBalao();
   $$('#aliOps .op').forEach(b => b.onclick = () => { const o = lista[+b.dataset.op]; $('#aliOps').innerHTML = ''; o[1]() });
 }
-// cutucar o Ali
+// terminou de falar: vai pro canto e fica de boa
+async function descansa(meu){
+  escondeBalao();
+  await andaPara(LUGAR.canto()); if (meu !== falaId) return;
+  mostra(PARADA); ocupada = false; ultimoMexe = Date.now();
+}
+// troca de tela: sai correndo e entra pelo outro lado
+async function entraNaTela(id, primeira){
+  const meu = ++falaId; limpa(); escondeBalao(); ocupada = true;
+  if (!primeira){ await andaPara(LUGAR.foraEsq(), true); if (meu !== falaId) return }
+  poe(LUGAR.foraDir());
+  await andaPara(LUGAR.centro(), true); if (meu !== falaId) return;
+  FALA_DA_TELA[id] ? FALA_DA_TELA[id]() : descansa(meu);
+}
+// parada no canto, ela não fica estátua
+let ultimoMexe = Date.now();
+setInterval(async () => {
+  if (ocupada || document.hidden || Date.now() - ultimoMexe < 7000) return;
+  ultimoMexe = Date.now() + 2000;
+  const meu = falaId, r = Math.random();
+  const volta = ms => setTimeout(() => meu===falaId && !ocupada && mostra(PARADA), ms);
+  if (r < .3) anima('pula');
+  else if (r < .55){ mostra('aceno'); volta(1400) }
+  else if (r < .8){
+    await andaPara(LUGAR.canto() - 70); if (meu !== falaId || ocupada) return;
+    mostra('andaJoinha');
+    setTimeout(async () => { if (meu !== falaId || ocupada) return; await andaPara(LUGAR.canto()); if (meu===falaId && !ocupada) mostra(PARADA) }, 900);
+  }
+  else { mostra('pensa'); volta(1600) }
+}, 1000);
+// cutucar a Alia
 let cutucadas = 0;
-$('#aliPalco').onclick = () => { anima('pula'); cutucadas++; hearts(...centro($('#aliPalco')), 4) };
+corpo.onclick = () => { anima('pula'); hearts(x, innerHeight - 260, 4); diz('cutuca' + (cutucadas++ % 3 + 1), null, {ficar:true}) };
 
 const FALA_DA_TELA = {
-  inicio: () => fala('oi', () => fala('pergunta', () => opcoes([
-    ['Já fiz! 🙌', () => fala('jaFiz', () => opcoes([['Marcar o próximo', () => go('lembrete')]]))],
-    ['Ainda não', () => fala('aindaNao', () => opcoes([['Bora fazer agora', () => go('autoexame')]]))],
-    ['Como faz?', () => fala('comoFaz', () => go('autoexame'))],
+  inicio: () => diz('oi', () => fala(falaId, 'pergunta', () => opcoes([
+    ['Já fiz! 🙌', () => diz('jaFiz', () => opcoes([['Marcar o próximo', () => go('lembrete')]]))],
+    ['Ainda não', () => diz('aindaNao', () => opcoes([['Bora fazer agora', () => go('autoexame')]]))],
+    ['Como faz?', () => diz('comoFaz', () => go('autoexame'))],
   ]))),
-  autoexame: () => fala('autoexame'),
-  lembrete: () => fala('lembrete'),
-  mito: () => fala('mito'),
-  lembrar: () => fala('lembrar'),
+  autoexame: () => diz('autoexame'),
+  lembrete: () => diz('lembrete'),
+  mito: () => diz('mito'),
+  lembrar: () => diz('lembrar'),
 };
 
 /* ================= navegação ================= */
@@ -425,8 +506,7 @@ function go(id){
   $$('nav button').forEach(b => b.classList.toggle('on', b.dataset.go === id));
   window.scrollTo({top:0, behavior:'smooth'});
   history.replaceState(null, '', '#'+id);
-  if (!primeira) anima('pula');
-  FALA_DA_TELA[id] && FALA_DA_TELA[id]();
+  entraNaTela(id, primeira);
 }
 document.addEventListener('click', e => { const b = e.target.closest('[data-go]'); if (b) go(b.dataset.go) });
 
@@ -462,7 +542,7 @@ function renderTimer(){
 $('#tBtn').onclick = () => {
   if (tId){ clearInterval(tId); tId=null; $('#tBtn').textContent='▶ Continuar'; $('#tPhase').textContent='pausado'; return }
   if (tLeft <= 0) tLeft = TOTAL;
-  if (!jaFalouCrono){ jaFalouCrono = true; fala('cronometro') }
+  if (!jaFalouCrono){ jaFalouCrono = true; diz('cronometro', null, {ficar:true}) }
   $('#tBtn').textContent = '❚❚ Pausar';
   tId = setInterval(() => {
     tLeft--; renderTimer();
@@ -470,7 +550,7 @@ $('#tBtn').onclick = () => {
       clearInterval(tId); tId=null;
       $('#tPhase').textContent='feito!'; $('#tCue').textContent='Pronto. Até o mês que vem. Se algo pareceu diferente, marque uma consulta. 💗';
       $('#tBtn').textContent='↺ Fazer de novo'; burst($('#tBtn'));
-      fala('terminou', () => opcoes([['Marcar o próximo', () => go('lembrete')]])); anima('pula');
+      diz('terminou', () => opcoes([['Marcar o próximo', () => go('lembrete')]])); anima('pula');
     }
   }, 1000);
   renderTimer();
@@ -496,14 +576,14 @@ function nextDate(d){
   return {y, m:m+1, d};
 }
 const stamp = ({y,m,d}, h, min) => `${y}${pad(m)}${pad(d)}T${pad(h)}${pad(min)}00`;
-const TITLE = 'Autoexame do mês 🎀', DESC = 'Dois minutinhos para você: olhe, sinta, repare. O Ali guia você aqui: '+APP_URL;
+const TITLE = 'Autoexame do mês 🎀', DESC = 'Dois minutinhos para você: olhe, sinta, repare. A Alia guia você aqui: '+APP_URL;
 function needDay(){
   if (day) return false;
   $('#chosen').innerHTML = '<b>Escolha um dia ali em cima primeiro.</b>';
   daysEl.animate([{transform:'translateX(0)'},{transform:'translateX(-6px)'},{transform:'translateX(6px)'},{transform:'translateX(0)'}],{duration:300});
   return true;
 }
-function done(btn){ $('#saved').classList.add('on'); burst(btn); fala('combinado'); anima('pula') }
+function done(btn){ $('#saved').classList.add('on'); burst(btn); diz('combinado'); anima('pula') }
 $('#gcal').onclick = e => {
   if (needDay()) return;
   const s = nextDate(day);
@@ -550,7 +630,7 @@ $('#mamoBtn').onclick = e => {
   const s = {y:n.getFullYear(), m:n.getMonth()+1, d:Math.min(n.getDate(),28)};
   downloadIcs('consulta-anual.ics', {start:stamp(s,9,0), end:stamp(s,9,15), rrule:'FREQ=YEARLY',
     title:'Marcar consulta e conversar sobre a mamografia 🎀', desc:'Lembrete anual do Rosa em Dia: '+APP_URL});
-  burst(e.currentTarget); fala('combinado');
+  burst(e.currentTarget); diz('combinado');
 };
 
 /* ================= mito ou verdade ================= */
@@ -588,10 +668,10 @@ btnsChute(); paintDeck();
 $('#qBtns').onclick = e => {
   const b = e.target.closest('button'); if (!b || b.dataset.go) return;
   const a = b.dataset.a;
-  if (a === 'restart'){ $('#qEnd')?.remove(); qi = 0; hits = 0; answered = false; $$('.qcard').forEach(c => c.classList.remove('done')); btnsChute(); paintDeck(); fala('mito'); return }
+  if (a === 'restart'){ $('#qEnd')?.remove(); qi = 0; hits = 0; answered = false; $$('.qcard').forEach(c => c.classList.remove('done')); btnsChute(); paintDeck(); diz('mito'); return }
   if (!answered){
     const ok = a === Q[qi][1]; if (ok){ hits++; burst(b); anima('pula') }
-    fala(ok ? 'acertou' : 'errou');
+    diz(ok ? 'acertou' : 'errou', null, {ficar:true});
     $$('.qcard')[qi].classList.add('done'); answered = true;
     $('#qBtns').innerHTML = `<button class="btn" data-a="next">${qi === Q.length-1 ? 'Ver resultado' : 'Próxima carta →'}</button>`;
     placar();
@@ -603,7 +683,7 @@ $('#qBtns').onclick = e => {
         <p style="color:var(--muted);font-size:14.5px">Que tal passar adiante? Mande o app para alguém que você ama.</p>`;
       deck.appendChild(end);
       $('#qBtns').innerHTML = `<button class="btn ghost" data-a="restart">Jogar de novo</button><button class="btn" data-go="lembrar">Lembrar alguém</button>`;
-      fala('fimQuiz'); anima('pula');
+      diz('fimQuiz'); anima('pula');
     } else btnsChute();
   }
 };
@@ -619,7 +699,7 @@ $('#tones').innerHTML = TONES.map((t, i) => `<button class="tone${i?'':' sel'}" 
 $('#tones').onclick = e => { const b = e.target.closest('.tone'); if (!b) return; tone = +b.dataset.t; $$('.tone').forEach(x => x.classList.toggle('sel', x===b)) };
 const msg = () => TONES[tone][1] + APP_URL;
 let count = store.get('count', 0); $('#count').textContent = count;
-function bump(btn){ count++; store.set('count', count); $('#count').textContent = count; burst(btn); fala('enviou'); anima('pula') }
+function bump(btn){ count++; store.set('count', count); $('#count').textContent = count; burst(btn); diz('enviou', null, {ficar:true}); anima('pula') }
 $('#zap').onclick = e => { window.open('https://wa.me/?text=' + encodeURIComponent(msg()), '_blank', 'noopener'); bump(e.currentTarget) };
 $('#copy').onclick = async e => {
   const b = e.currentTarget;
@@ -628,7 +708,7 @@ $('#copy').onclick = async e => {
 };
 
 /* início */
-mostra('aceno'); anima('entra');
+mostra(PARADA);
 const h0 = location.hash.slice(1);
 go(FALA_DA_TELA[h0] ? h0 : 'inicio');
 </script>

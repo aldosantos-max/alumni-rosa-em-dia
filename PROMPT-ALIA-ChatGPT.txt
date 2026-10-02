@@ -1,0 +1,40 @@
+COMO USAR: abra o ChatGPT, anexe a imagem de referência do Ali
+(C:\Users\aldo.santos\video-studio\assets\ali-video\poses-gpt\folhaA.png) e cole o texto abaixo.
+Gere as 2 folhas (mande a FOLHA 1, depois peça a FOLHA 2 na mesma conversa) e salve em Downloads.
+
+-------------------------------------------------------------------------------
+
+Esta é a folha de poses do Ali, mascote da Alumni. Crie a ALIA, a versão feminina dele,
+no MESMO estilo de render 3D, mesma iluminação, mesmo material e mesmas proporções.
+
+Como a Alia é:
+- Mesma cabeça de globo azul com continentes brancos, mesmo formato e tamanho.
+- Olhos grandes iguais aos do Ali, com cílios longos e delicados. Sorriso aberto e simpático, boca bem visível.
+- Uma tiara rosa (#F062A0) no alto do globo, com um laço grande de fita rosa (o laço do Outubro Rosa).
+- O mesmo moletom azul com capuz, com o logo "alumni by BETTER" no peito, igual ao do Ali.
+  Nada encostando no logo nem passando por cima dele.
+- Um pin pequeno de fita rosa no ombro direito dela, longe do logo.
+- Calça jeans igual à do Ali, tênis azul e branco com detalhes rosa e a mesma mochila preta.
+- Mesmo jeito alegre, amigável e jovem do Ali. Nada caricato.
+
+Regras da folha:
+- Fundo branco liso, sem sombra no chão, sem texto, sem ícones ou riscos de movimento em volta.
+- Corpo inteiro em todas as poses, da cabeça aos pés, nada cortado pela borda.
+- Poses bem separadas uma da outra, sem se encostarem, todas na mesma escala.
+- Mãos com luvas azuis como as do Ali.
+
+FOLHA 1 (6 poses):
+1. Andando para a direita, passo largo, braços balançando
+2. Correndo para a direita, animada
+3. Acenando com uma mão, a outra relaxada
+4. Braços abertos, como quem diz "vem cá"
+5. Fazendo um coração com as duas mãos na frente do peito (sem cobrir o logo)
+6. Pulando de alegria, braços para cima
+
+FOLHA 2 (6 poses):
+7. Joinha com uma mão
+8. Andando e fazendo joinha
+9. Pensativa, mão no queixo
+10. Apontando para baixo com as duas mãos
+11. Dedo indicador para cima, como quem dá uma dica
+12. Andando para a ESQUERDA, passo largo (espelho da pose 1, mas com o logo lido normalmente)
