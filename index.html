@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dá um Toque · Outubro Rosa</title>
+<meta name="description" content="Outubro Rosa na Better: um lembrete leve por mês para cuidar de você e de quem você ama.">
+<meta name="theme-color" content="#FFF5F7">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 6c-9 0-15 7-15 15 0 7 4 13 9 20L14 58l8 2 10-15 10 15 8-2-12-17c5-7 9-13 9-20 0-8-6-15-15-15zm0 9c4 0 6 3 6 6 0 4-3 9-6 13-3-4-6-9-6-13 0-3 2-6 6-6z' fill='%23E2557A'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFF5F7; --card:#FFFFFF; --ink:#3B1F2B; --muted:#86636F;
+  --rosa:#E2557A; --rosa-d:#B83A5E; --rosa-l:#FBD3DD; --rosa-xl:#FDE9EE;
+  --menta:#CDEFD9; --menta-d:#2E7D52; --mel:#FFE7B8; --lilas:#E6DDFB;
+  --line:#F3D9E0; --r:22px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:Poppins,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;min-height:100vh;overflow-x:hidden}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+.wrap{max-width:520px;margin:0 auto;padding:0 16px calc(110px + env(safe-area-inset-bottom))}
+.serif{font-family:Fraunces,Georgia,serif;font-weight:500;letter-spacing:-.01em}
+
+/* topo */
+.top{display:flex;align-items:center;justify-content:space-between;padding:18px 0 6px}
+.brand{display:flex;align-items:center;gap:8px;font-weight:600;font-size:14px}
+.brand svg{width:22px;height:22px}
+.pill{font-size:12px;font-weight:500;background:var(--rosa-xl);color:var(--rosa-d);padding:5px 11px;border-radius:99px}
+
+/* telas */
+.screen{display:none;animation:in .45s ease both}
+.screen.on{display:block}
+@keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+.hero{position:relative;padding:26px 0 8px}
+.hero h1{font-size:44px;line-height:1.02;margin-bottom:14px}
+.hero h1 em{color:var(--rosa);font-style:italic}
+.hero p{font-size:16px;color:var(--muted);max-width:30ch}
+.blob{position:absolute;right:-30px;top:6px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#FFD0DC,#F58DA9 70%);filter:blur(.3px);opacity:.75;z-index:-1;animation:pulse 4s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.07)}}
+
+.card{background:var(--card);border-radius:var(--r);padding:20px;margin-top:14px;box-shadow:0 1px 0 var(--line),0 10px 30px -18px rgba(184,58,94,.35)}
+.card h2{font-size:22px;line-height:1.2;margin-bottom:6px}
+.card p{color:var(--muted);font-size:14.5px}
+.kicker{font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--rosa-d);margin-bottom:6px}
+
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.tile{border-radius:var(--r);padding:16px;text-align:left;min-height:128px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .2s}
+.tile:active{transform:scale(.97)}
+.tile b{font-size:15.5px;font-weight:600;line-height:1.25}
+.tile span{font-size:12.5px;opacity:.75}
+.tile .ic{font-size:26px}
+.t1{background:var(--rosa-l)} .t2{background:var(--mel)} .t3{background:var(--menta)} .t4{background:var(--lilas)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--rosa);color:#fff;font-weight:600;font-size:15px;padding:14px 20px;border-radius:99px;width:100%;transition:background .2s,transform .15s}
+.btn:hover{background:var(--rosa-d)} .btn:active{transform:scale(.98)}
+.btn.ghost{background:var(--rosa-xl);color:var(--rosa-d)}
+.btn.ghost:hover{background:var(--rosa-l)}
+.row{display:flex;gap:10px;margin-top:12px}
+.row .btn{flex:1}
+
+/* passos do toque */
+.steps{margin-top:6px}
+.step{display:grid;grid-template-columns:46px 1fr;gap:14px;padding:16px 0;border-bottom:1px dashed var(--line)}
+.step:last-child{border:0}
+.num{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-family:Fraunces,serif;font-size:20px;background:var(--rosa-xl);color:var(--rosa-d)}
+.step b{display:block;font-size:15.5px;margin-bottom:2px}
+.step p{font-size:14px}
+
+.signs{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.sign{font-size:13px;background:var(--rosa-xl);border-radius:12px;padding:8px 11px;color:var(--ink)}
+
+/* timer */
+.timer{display:flex;flex-direction:column;align-items:center;padding:8px 0 4px}
+.ring{position:relative;width:190px;height:190px;margin:10px 0 14px}
+.ring svg{transform:rotate(-90deg)}
+.ring .lbl{position:absolute;inset:0;display:grid;place-items:center;text-align:center}
+.ring .lbl b{font-family:Fraunces,serif;font-size:40px;font-weight:500;display:block;line-height:1}
+.ring .lbl small{font-size:12.5px;color:var(--muted)}
+.cue{font-size:15px;text-align:center;min-height:48px;max-width:30ch}
+
+/* lembrete */
+.days{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin:14px 0 6px}
+.day{aspect-ratio:1;border-radius:12px;background:var(--rosa-xl);font-size:14px;font-weight:500;transition:.15s}
+.day:hover{background:var(--rosa-l)}
+.day.sel{background:var(--rosa);color:#fff;transform:scale(1.06)}
+.chosen{font-size:14px;color:var(--muted);margin:6px 0 14px}
+.chosen b{color:var(--rosa-d)}
+.saved{display:none;margin-top:12px;background:var(--menta);color:var(--menta-d);border-radius:14px;padding:11px 14px;font-size:13.5px;font-weight:500}
+.saved.on{display:block;animation:in .3s both}
+
+.age{display:flex;align-items:center;gap:12px;margin:14px 0 10px}
+.age input{width:100%;accent-color:var(--rosa)}
+.age output{font-family:Fraunces,serif;font-size:30px;min-width:64px;text-align:right;color:var(--rosa-d)}
+.answer{background:var(--rosa-xl);border-radius:16px;padding:14px 16px;font-size:14.5px}
+.answer b{display:block;margin-bottom:3px}
+.src{font-size:11.5px;color:var(--muted);margin-top:10px}
+
+/* mito ou verdade */
+.deck{position:relative;height:330px;margin-top:14px}
+.qcard{position:absolute;inset:0;background:var(--card);border-radius:28px;padding:26px 22px;display:flex;flex-direction:column;box-shadow:0 18px 40px -22px rgba(184,58,94,.45);transition:transform .45s cubic-bezier(.2,.8,.2,1),opacity .45s}
+.qcard .q{font-family:Fraunces,serif;font-size:25px;line-height:1.2;flex:1;display:flex;align-items:center}
+.qcard .reveal{display:none}
+.qcard.done .reveal{display:block;animation:in .35s both}
+.qcard.done .q{font-size:19px;flex:0;margin-bottom:12px;color:var(--muted)}
+.verdict{display:inline-block;font-weight:700;font-size:13px;letter-spacing:.08em;padding:6px 12px;border-radius:99px;margin-bottom:10px}
+.v-ok{background:var(--menta);color:var(--menta-d)} .v-no{background:var(--mel);color:#8A5A00}
+.reveal p{font-size:15px;color:var(--ink)}
+.reveal .hit{font-size:13px;color:var(--muted);margin-top:10px}
+.qcard.back1{transform:translateY(12px) scale(.95);opacity:.6}
+.qcard.back2{transform:translateY(24px) scale(.9);opacity:.3}
+.qcard.gone{transform:translateX(-120%) rotate(-12deg);opacity:0;pointer-events:none}
+.score{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted);margin-top:4px}
+.dots{display:flex;gap:5px}
+.dots i{width:7px;height:7px;border-radius:50%;background:var(--line)}
+.dots i.on{background:var(--rosa)}
+
+/* dar um toque */
+.tones{display:flex;flex-direction:column;gap:8px;margin:14px 0}
+.tone{text-align:left;border:2px solid var(--line);border-radius:16px;padding:12px 14px;font-size:14px;background:#fff;transition:.15s}
+.tone.sel{border-color:var(--rosa);background:var(--rosa-xl)}
+.tone b{display:block;font-size:13px;color:var(--rosa-d);margin-bottom:2px}
+.counter{text-align:center;margin-top:16px;font-size:13.5px;color:var(--muted)}
+.counter b{font-family:Fraunces,serif;font-size:34px;font-weight:500;color:var(--rosa);display:block;line-height:1.1}
+
+.note{font-size:12px;color:var(--muted);text-align:center;margin:26px auto 0;max-width:40ch}
+
+/* nav */
+nav{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom));transform:translateX(-50%);width:min(488px,calc(100% - 32px));background:rgba(255,255,255,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:24px;box-shadow:0 12px 34px -14px rgba(59,31,43,.35);display:grid;grid-template-columns:repeat(4,1fr);padding:7px;z-index:10}
+nav button{display:flex;flex-direction:column;align-items:center;gap:1px;padding:7px 2px;border-radius:17px;font-size:11px;font-weight:500;color:var(--muted);transition:.2s}
+nav button .i{font-size:19px;line-height:1.2}
+nav button.on{background:var(--rosa-xl);color:var(--rosa-d)}
+
+/* confete de corações */
+.heart{position:fixed;pointer-events:none;font-size:22px;z-index:50;animation:float 1.6s ease-out forwards}
+@keyframes float{to{transform:translate(var(--dx),-180px) rotate(var(--rot));opacity:0}}
+
+@media (max-width:380px){.hero h1{font-size:37px}.qcard .q{font-size:22px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div class="brand">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6c-9 0-15 7-15 15 0 7 4 13 9 20L14 58l8 2 10-15 10 15 8-2-12-17c5-7 9-13 9-20 0-8-6-15-15-15zm0 9c4 0 6 3 6 6 0 4-3 9-6 13-3-4-6-9-6-13 0-3 2-6 6-6z" fill="#E2557A"/></svg>
+      Dá um Toque
+    </div>
+    <span class="pill">Outubro Rosa · Better</span>
+  </header>
+
+  <!-- INÍCIO -->
+  <section class="screen on" id="s-inicio">
+    <div class="hero">
+      <div class="blob"></div>
+      <h1 class="serif">Um toque<br>por mês.<br><em>Só isso.</em></h1>
+      <p>Conhecer o próprio corpo é o jeito mais simples de perceber quando algo muda. Leva dois minutos, e a gente lembra você.</p>
+    </div>
+
+    <div class="tiles">
+      <button class="tile t1" data-go="toque"><span class="ic">🤍</span><div><b>Como fazer o toque</b><br><span>3 passos e um cronômetro</span></div></button>
+      <button class="tile t2" data-go="lembrete"><span class="ic">🗓️</span><div><b>Meu lembrete</b><br><span>Um dia por mês na agenda</span></div></button>
+      <button class="tile t3" data-go="mito"><span class="ic">✨</span><div><b>Mito ou verdade?</b><br><span>7 cartas rapidinhas</span></div></button>
+      <button class="tile t4" data-go="dar"><span class="ic">💌</span><div><b>Dar um toque</b><br><span>Lembre alguém que você ama</span></div></button>
+    </div>
+
+    <div class="card">
+      <div class="kicker">Por que vale</div>
+      <h2 class="serif">Descoberto cedo, ele tem muita chance de cura.</h2>
+      <p>O câncer de mama é o mais comum entre as mulheres no Brasil. Quando é encontrado no início, as chances de tratamento dar certo são muito altas. Por isso o toque, a consulta e a mamografia andam juntos.</p>
+    </div>
+  </section>
+
+  <!-- TOQUE -->
+  <section class="screen" id="s-toque">
+    <div class="hero" style="padding-bottom:0">
+      <h1 class="serif" style="font-size:36px">Dois minutos<br><em>pra você.</em></h1>
+      <p>No banho ou na hora de trocar de roupa. Sem pressa e sem medo: a ideia é conhecer o seu normal.</p>
+    </div>
+
+    <div class="card">
+      <div class="steps">
+        <div class="step"><div class="num">1</div><div><b>Olhe</b><p>Na frente do espelho, braços para baixo e depois para cima. Repare no formato, na pele e nos mamilos.</p></div></div>
+        <div class="step"><div class="num">2</div><div><b>Toque</b><p>Com a ponta dos dedos, faça pequenos círculos pela mama inteira, incluindo a região da axila. Pele molhada ajuda.</p></div></div>
+        <div class="step"><div class="num">3</div><div><b>Perceba</b><p>Notou algo diferente do mês passado? Anote e converse com um médico. Na maioria das vezes não é nada grave, mas quem decide é o exame.</p></div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="kicker">Cronômetro do toque</div>
+      <div class="timer">
+        <div class="ring">
+          <svg width="190" height="190" viewBox="0 0 190 190">
+            <circle cx="95" cy="95" r="84" fill="none" stroke="#FDE9EE" stroke-width="12"/>
+            <circle id="arc" cx="95" cy="95" r="84" fill="none" stroke="#E2557A" stroke-width="12" stroke-linecap="round" stroke-dasharray="527.8" stroke-dashoffset="527.8"/>
+          </svg>
+          <div class="lbl"><div><b id="tLeft">2:00</b><small id="tPhase">pronta?</small></div></div>
+        </div>
+        <p class="cue" id="tCue">Aperte o play e siga as dicas no seu ritmo.</p>
+        <div class="row" style="width:100%"><button class="btn" id="tBtn">▶ Começar</button></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="kicker">Fique de olho se aparecer</div>
+      <div class="signs">
+        <span class="sign">Caroço endurecido, geralmente sem dor</span>
+        <span class="sign">Pele avermelhada ou repuxada</span>
+        <span class="sign">Aspecto de casca de laranja</span>
+        <span class="sign">Mamilo que mudou ou afundou</span>
+        <span class="sign">Saída de líquido sem apertar</span>
+        <span class="sign">Íngua na axila ou no pescoço</span>
+      </div>
+      <p style="margin-top:12px">O toque não substitui a consulta nem a mamografia. Ele ajuda você a chegar no médico sabendo o que mudou.</p>
+    </div>
+  </section>
+
+  <!-- LEMBRETE -->
+  <section class="screen" id="s-lembrete">
+    <div class="hero" style="padding-bottom:0">
+      <h1 class="serif" style="font-size:36px">Escolha<br><em>o seu dia.</em></h1>
+      <p>Todo mês, no mesmo dia, sua agenda dá um toquezinho. Nada fica salvo com a gente.</p>
+    </div>
+
+    <div class="card">
+      <div class="kicker">Toque do mês</div>
+      <div class="days" id="days"></div>
+      <p class="chosen" id="chosen">Toque em um dia. Dica: se você menstrua, uma semana depois do início do ciclo é quando as mamas ficam menos sensíveis.</p>
+      <button class="btn" id="gcal">Adicionar ao Google Agenda</button>
+      <div class="row"><button class="btn ghost" id="ics">Baixar para Outlook / iPhone</button></div>
+      <div class="saved" id="saved">Pronto! Seu lembrete mensal está a caminho da agenda. 💗</div>
+    </div>
+
+    <div class="card">
+      <div class="kicker">E a mamografia?</div>
+      <h2 class="serif">Qual é o seu momento?</h2>
+      <div class="age"><input type="range" id="age" min="18" max="85" value="35" aria-label="Sua idade"><output id="ageOut">35</output></div>
+      <div class="answer" id="ageAns"></div>
+      <div class="row"><button class="btn ghost" id="mamoBtn">Lembrete anual de consulta</button></div>
+      <p class="src">Referências: INCA / Ministério da Saúde e Sociedade Brasileira de Mastologia. As recomendações podem mudar com o seu histórico; quem fecha o plano é o seu médico.</p>
+    </div>
+  </section>
+
+  <!-- MITO OU VERDADE -->
+  <section class="screen" id="s-mito">
+    <div class="hero" style="padding-bottom:0">
+      <h1 class="serif" style="font-size:36px">Mito ou<br><em>verdade?</em></h1>
+      <p>Sete cartas para descomplicar o assunto. Chute e veja.</p>
+    </div>
+    <div class="deck" id="deck"></div>
+    <div class="score"><div class="dots" id="dots"></div><span id="scoreTxt">0 acertos</span></div>
+    <div class="row" id="qBtns">
+      <button class="btn ghost" data-a="mito">Mito</button>
+      <button class="btn" data-a="verdade">Verdade</button>
+    </div>
+  </section>
+
+  <!-- DAR UM TOQUE -->
+  <section class="screen" id="s-dar">
+    <div class="hero" style="padding-bottom:0">
+      <h1 class="serif" style="font-size:36px">Dê um toque<br><em>em alguém.</em></h1>
+      <p>Mãe, irmã, amiga, parceira, colega de time. Às vezes o lembrete que faltava vem de você.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">Escolha o jeitinho</div>
+      <div class="tones" id="tones"></div>
+      <button class="btn" id="zap">Enviar pelo WhatsApp</button>
+      <div class="row"><button class="btn ghost" id="copy">Copiar mensagem</button></div>
+      <div class="counter"><b id="count">0</b>toques que você já deu neste Outubro</div>
+    </div>
+    <div class="card">
+      <div class="kicker">Para os homens do time</div>
+      <p>Homens também podem ter câncer de mama (cerca de 1% dos casos), então os sinais valem para todo mundo. E o seu toque para as mulheres da sua vida conta muito.</p>
+    </div>
+  </section>
+
+  <p class="note">Este app é uma ação de conscientização da Better e não substitui avaliação médica. Na dúvida, procure seu plano de saúde ou a Unidade Básica de Saúde mais próxima.</p>
+</div>
+
+<nav id="nav">
+  <button data-go="inicio" class="on"><span class="i">🎀</span>Início</button>
+  <button data-go="toque"><span class="i">🤍</span>O toque</button>
+  <button data-go="lembrete"><span class="i">🗓️</span>Lembrete</button>
+  <button data-go="dar"><span class="i">💌</span>Dar toque</button>
+</nav>
+
+<script>
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const store = {
+  get(k, d){ try{ const v = localStorage.getItem('toque.'+k); return v===null?d:JSON.parse(v) }catch(e){ return d } },
+  set(k, v){ try{ localStorage.setItem('toque.'+k, JSON.stringify(v)) }catch(e){} }
+};
+const APP_URL = location.origin + location.pathname;
+
+/* navegação */
+function go(id){
+  $$('.screen').forEach(s => s.classList.toggle('on', s.id === 's-'+id));
+  $$('nav button').forEach(b => b.classList.toggle('on', b.dataset.go === id));
+  window.scrollTo({top:0, behavior:'smooth'});
+  history.replaceState(null, '', '#'+id);
+}
+document.addEventListener('click', e => { const b = e.target.closest('[data-go]'); if (b) go(b.dataset.go) });
+if (location.hash && $('#s-'+location.hash.slice(1))) go(location.hash.slice(1));
+
+function hearts(x, y, n=8){
+  for (let i=0;i<n;i++){
+    const h = document.createElement('span'); h.className='heart'; h.textContent = ['💗','🎀','🤍'][i%3];
+    h.style.left = x+'px'; h.style.top = y+'px';
+    h.style.setProperty('--dx', (Math.random()*160-80)+'px'); h.style.setProperty('--rot', (Math.random()*60-30)+'deg');
+    h.style.animationDelay = (i*40)+'ms';
+    document.body.appendChild(h); setTimeout(() => h.remove(), 1900);
+  }
+}
+const burst = el => { const r = el.getBoundingClientRect(); hearts(r.left + r.width/2, r.top) };
+
+/* cronômetro */
+const CUES = [
+  [0,  'Olhe', 'Braços para baixo. Repare no formato e na pele, sem julgamento.'],
+  [20, 'Olhe', 'Agora braços para cima. Algo repuxou ou mudou de lugar?'],
+  [40, 'Toque', 'Mama esquerda: pequenos círculos com a ponta dos dedos, de fora para dentro.'],
+  [70, 'Toque', 'Mama direita, no mesmo ritmo. Respira fundo, está indo bem.'],
+  [100,'Perceba','Axilas, dos dois lados. E por último, aperte de leve os mamilos.'],
+];
+const TOTAL = 120, ARC = 527.8;
+let tId = null, tLeft = TOTAL;
+function renderTimer(){
+  const el = TOTAL - tLeft;
+  $('#tLeft').textContent = Math.floor(tLeft/60)+':'+String(tLeft%60).padStart(2,'0');
+  $('#arc').setAttribute('stroke-dashoffset', ARC * (1 - el/TOTAL));
+  const c = [...CUES].reverse().find(c => el >= c[0]);
+  if (tId) { $('#tPhase').textContent = c[1].toLowerCase(); $('#tCue').textContent = c[2] }
+}
+$('#tBtn').onclick = e => {
+  if (tId){ clearInterval(tId); tId=null; $('#tBtn').textContent='▶ Continuar'; $('#tPhase').textContent='pausado'; return }
+  if (tLeft <= 0) tLeft = TOTAL;
+  $('#tBtn').textContent = '❚❚ Pausar';
+  tId = setInterval(() => {
+    tLeft--; renderTimer();
+    if (tLeft <= 0){
+      clearInterval(tId); tId=null;
+      $('#tPhase').textContent='feito!'; $('#tCue').textContent='Pronto. Até o mês que vem. Se algo pareceu diferente, marque uma consulta. 💗';
+      $('#tBtn').textContent='↺ Fazer de novo'; burst($('#tBtn'));
+    }
+  }, 1000);
+  renderTimer();
+};
+
+/* lembrete */
+let day = store.get('day', null);
+const daysEl = $('#days');
+for (let d=1; d<=28; d++){
+  const b = document.createElement('button'); b.className='day'; b.textContent=d; b.dataset.d=d;
+  b.onclick = () => { day = d; store.set('day', d); paintDays() };
+  daysEl.appendChild(b);
+}
+function paintDays(){
+  $$('.day').forEach(b => b.classList.toggle('sel', +b.dataset.d === day));
+  if (day) $('#chosen').innerHTML = `Seu toque fica todo <b>dia ${day}</b>, às 8h, com 10 minutinhos na agenda.`;
+}
+paintDays();
+
+const pad = n => String(n).padStart(2,'0');
+function nextDate(d){
+  const now = new Date(); let y = now.getFullYear(), m = now.getMonth();
+  if (now.getDate() > d) { m++; if (m>11){m=0;y++} }
+  return {y, m:m+1, d};
+}
+const stamp = ({y,m,d}, h, min) => `${y}${pad(m)}${pad(d)}T${pad(h)}${pad(min)}00`;
+const TITLE = 'Toque do mês 💗', DESC = 'Dois minutinhos para você: olhe, toque, perceba. Guia e cronômetro: '+APP_URL;
+
+function needDay(btn){
+  if (day) return false;
+  $('#chosen').innerHTML = '<b>Escolha um dia ali em cima primeiro.</b>';
+  daysEl.animate([{transform:'translateX(0)'},{transform:'translateX(-6px)'},{transform:'translateX(6px)'},{transform:'translateX(0)'}],{duration:300});
+  return true;
+}
+function done(btn){ $('#saved').classList.add('on'); burst(btn) }
+
+$('#gcal').onclick = e => {
+  if (needDay()) return;
+  const s = nextDate(day);
+  const url = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
+    + '&text=' + encodeURIComponent(TITLE)
+    + '&dates=' + stamp(s,8,0) + '/' + stamp(s,8,10)
+    + '&details=' + encodeURIComponent(DESC)
+    + '&recur=' + encodeURIComponent('RRULE:FREQ=MONTHLY;BYMONTHDAY='+day);
+  window.open(url, '_blank', 'noopener'); done(e.currentTarget);
+};
+
+function downloadIcs(name, ev){
+  const now = new Date(), dtstamp = now.toISOString().replace(/[-:]/g,'').split('.')[0]+'Z';
+  const ics = [
+    'BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Better//Da um Toque//PT','CALSCALE:GREGORIAN',
+    'BEGIN:VEVENT',
+    'UID:'+Date.now()+'@daumtoque', 'DTSTAMP:'+dtstamp,
+    'DTSTART:'+ev.start, 'DTEND:'+ev.end, 'RRULE:'+ev.rrule,
+    'SUMMARY:'+ev.title, 'DESCRIPTION:'+ev.desc.replace(/,/g,'\\,'),
+    'BEGIN:VALARM','TRIGGER:PT0M','ACTION:DISPLAY','DESCRIPTION:'+ev.title,'END:VALARM',
+    'END:VEVENT','END:VCALENDAR'
+  ].join('\r\n');
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([ics], {type:'text/calendar'}));
+  a.download = name; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+}
+$('#ics').onclick = e => {
+  if (needDay()) return;
+  const s = nextDate(day);
+  downloadIcs('toque-do-mes.ics', {start:stamp(s,8,0), end:stamp(s,8,10), rrule:'FREQ=MONTHLY;BYMONTHDAY='+day, title:TITLE, desc:DESC});
+  done(e.currentTarget);
+};
+
+/* idade */
+function ageText(a){
+  if (a < 40) return ['Seu foco agora: conhecer o seu corpo.', 'O toque mensal e a consulta de rotina com o ginecologista já fazem muito. Se mãe, irmã ou filha teve câncer de mama, conte isso ao médico: pode ser indicado começar os exames mais cedo.'];
+  if (a < 50) return ['É uma boa hora para conversar sobre a mamografia.', 'A Sociedade Brasileira de Mastologia recomenda mamografia todo ano a partir dos 40. No SUS, nessa faixa, o exame pode ser feito a partir da conversa com o médico.'];
+  if (a <= 74) return ['A mamografia entra no seu calendário.', 'No SUS, a recomendação é a cada 2 anos nessa faixa. A Sociedade Brasileira de Mastologia indica todo ano. Combine o intervalo ideal com o seu médico.'];
+  return ['O plano é feito sob medida.', 'A partir dos 75, a frequência dos exames é decidida caso a caso com o médico, de acordo com a sua saúde.'];
+}
+function paintAge(){
+  const a = +$('#age').value; $('#ageOut').textContent = a; store.set('age', a);
+  const [t, p] = ageText(a); $('#ageAns').innerHTML = `<b>${t}</b>${p}`;
+}
+$('#age').value = store.get('age', 35); $('#age').oninput = paintAge; paintAge();
+$('#mamoBtn').onclick = e => {
+  const n = new Date(); n.setMonth(n.getMonth()+1);
+  const s = {y:n.getFullYear(), m:n.getMonth()+1, d:Math.min(n.getDate(),28)};
+  downloadIcs('consulta-anual.ics', {start:stamp(s,9,0), end:stamp(s,9,15), rrule:'FREQ=YEARLY',
+    title:'Marcar consulta e conversar sobre a mamografia 🎀', desc:'Lembrete anual do Dá um Toque: '+APP_URL});
+  burst(e.currentTarget);
+};
+
+/* mito ou verdade */
+const Q = [
+  ['Só quem tem caso na família precisa se preocupar.', 'mito', 'A maioria dos casos acontece em pessoas sem histórico familiar. Os casos hereditários são algo entre 5% e 10%. Histórico conta, mas não é o único fator.'],
+  ['Homens também podem ter câncer de mama.', 'verdade', 'É raro, por volta de 1% dos casos, mas acontece. Caroço perto do mamilo é o sinal mais comum neles.'],
+  ['Todo caroço na mama é câncer.', 'mito', 'A maioria dos nódulos é benigna, como cistos e fibroadenomas. Mesmo assim, todo nódulo novo merece uma avaliação médica.'],
+  ['Mexer o corpo ajuda a diminuir o risco.', 'verdade', 'Atividade física, peso saudável e menos álcool estão entre os fatores que reduzem o risco. Bora aquela caminhada?'],
+  ['Sutiã com aro e desodorante causam câncer.', 'mito', 'Não há evidência científica disso. Pode usar o seu sutiã favorito em paz.'],
+  ['A mamografia usa muita radiação e faz mal.', 'mito', 'A dose é baixa e o benefício de encontrar algo cedo é muito maior. O apertinho incomoda, mas dura poucos segundos.'],
+  ['Descoberto cedo, as chances de cura são altas.', 'verdade', 'Nos estágios iniciais, as chances de cura podem passar de 90%. É exatamente por isso que o toque e os exames importam.'],
+];
+let qi = 0, hits = 0;
+const deck = $('#deck');
+Q.forEach((q, i) => {
+  const c = document.createElement('div'); c.className = 'qcard'; c.style.zIndex = 100 - i;
+  c.innerHTML = `<div class="kicker">Carta ${i+1} de ${Q.length}</div><div class="q">${q[0]}</div>
+    <div class="reveal"><span class="verdict ${q[1]==='verdade'?'v-ok':'v-no'}">${q[1].toUpperCase()}</span><p>${q[2]}</p><p class="hit"></p></div>`;
+  deck.appendChild(c);
+});
+$('#dots').innerHTML = Q.map(() => '<i></i>').join('');
+function paintDeck(){
+  $$('.qcard').forEach((c, i) => {
+    c.classList.remove('back1','back2');
+    if (i < qi) c.classList.add('gone');
+    else if (i === qi+1) c.classList.add('back1');
+    else if (i >= qi+2) c.classList.add('back2');
+  });
+  $$('#dots i').forEach((d, i) => d.classList.toggle('on', i < qi));
+  $('#scoreTxt').textContent = hits + (hits===1?' acerto':' acertos');
+}
+paintDeck();
+let answered = false;
+$('#qBtns').onclick = e => {
+  const b = e.target.closest('button'); if (!b) return;
+  const card = $$('.qcard')[qi];
+  if (qi >= Q.length){ qi = 0; hits = 0; $$('.qcard').forEach(c => c.classList.remove('done','gone')); setQBtns(); paintDeck(); return }
+  if (!answered){
+    const ok = b.dataset.a === Q[qi][1]; if (ok){ hits++; burst(b) }
+    card.querySelector('.hit').textContent = ok ? 'Você acertou! 🎉' : 'Quase! Agora você já sabe.';
+    card.classList.add('done'); answered = true;
+    $('#qBtns').innerHTML = `<button class="btn" data-a="next">${qi === Q.length-1 ? 'Ver resultado' : 'Próxima carta →'}</button>`;
+    $('#scoreTxt').textContent = hits + (hits===1?' acerto':' acertos');
+  } else {
+    answered = false; qi++; paintDeck();
+    if (qi >= Q.length){
+      const end = document.createElement('div'); end.className = 'qcard'; end.id = 'qEnd'; end.style.zIndex = 1;
+      end.innerHTML = `<div class="kicker">Resultado</div><div class="q">${hits} de ${Q.length}. ${hits>=6?'Você manda muito.':hits>=4?'Muito bem!':'Agora você sabe mais que ontem.'}</div>
+        <p style="color:var(--muted);font-size:14.5px">Que tal passar isso adiante? Mande o app para alguém e dê um toque.</p>`;
+      deck.appendChild(end);
+      $('#qBtns').innerHTML = `<button class="btn ghost" data-a="restart">Jogar de novo</button><button class="btn" data-go="dar">Dar um toque</button>`;
+    } else setQBtns();
+  }
+};
+function setQBtns(){
+  const end = $('#qEnd'); if (end) end.remove();
+  $('#qBtns').innerHTML = '<button class="btn ghost" data-a="mito">Mito</button><button class="btn" data-a="verdade">Verdade</button>';
+}
+
+/* dar um toque */
+const TONES = [
+  ['Carinhoso', 'Oi! Passando só para te dar um toque 💗 Este mês é Outubro Rosa e eu lembrei de você. Já se tocou hoje? Leva 2 minutos e tem um guia bem fofo aqui: '],
+  ['Divertido', 'Toc toc! 🎀 É o seu lembrete oficial do Outubro Rosa. Dois minutinhos no banho, um cronômetro que te guia e pronto. Vai lá: '],
+  ['Direto', 'Lembrete do Outubro Rosa: já marcou sua consulta ou mamografia deste ano? Aqui tem o passo a passo do toque e um lembrete para a agenda: '],
+];
+let tone = 0;
+$('#tones').innerHTML = TONES.map((t, i) => `<button class="tone${i?'':' sel'}" data-t="${i}"><b>${t[0]}</b>${t[1]}…</button>`).join('');
+$('#tones').onclick = e => { const b = e.target.closest('.tone'); if (!b) return; tone = +b.dataset.t; $$('.tone').forEach(x => x.classList.toggle('sel', x===b)) };
+const msg = () => TONES[tone][1] + APP_URL;
+let count = store.get('count', 0); $('#count').textContent = count;
+function bump(btn){ count++; store.set('count', count); $('#count').textContent = count; burst(btn) }
+$('#zap').onclick = e => { window.open('https://wa.me/?text=' + encodeURIComponent(msg()), '_blank', 'noopener'); bump(e.currentTarget) };
+$('#copy').onclick = async e => {
+  const b = e.currentTarget;
+  try { await navigator.clipboard.writeText(msg()); b.textContent = 'Copiado! ✓' } catch(err){ b.textContent = 'Não deu para copiar' }
+  bump(b); setTimeout(() => b.textContent = 'Copiar mensagem', 1800);
+};
+</script>
+</body>
+</html>
