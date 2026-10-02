@@ -3,200 +3,230 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Dá um Toque · Outubro Rosa</title>
-<meta name="description" content="Outubro Rosa na Better: um lembrete leve por mês para cuidar de você e de quem você ama.">
-<meta name="theme-color" content="#FFF5F7">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 6c-9 0-15 7-15 15 0 7 4 13 9 20L14 58l8 2 10-15 10 15 8-2-12-17c5-7 9-13 9-20 0-8-6-15-15-15zm0 9c4 0 6 3 6 6 0 4-3 9-6 13-3-4-6-9-6-13 0-3 2-6 6-6z' fill='%23E2557A'/%3E%3C/svg%3E">
+<title>Rosa em Dia · Alumni</title>
+<meta name="description" content="Outubro Rosa na Alumni by Better: o Ali lembra você do autoexame, da consulta e de cuidar de quem você ama.">
+<meta name="theme-color" content="#FFF6FA">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 6c-9 0-15 7-15 15 0 7 4 13 9 20L14 58l8 2 10-15 10 15 8-2-12-17c5-7 9-13 9-20 0-8-6-15-15-15zm0 9c4 0 6 3 6 6 0 4-3 9-6 13-3-4-6-9-6-13 0-3 2-6 6-6z' fill='%23F062A0'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#FFF5F7; --card:#FFFFFF; --ink:#3B1F2B; --muted:#86636F;
-  --rosa:#E2557A; --rosa-d:#B83A5E; --rosa-l:#FBD3DD; --rosa-xl:#FDE9EE;
-  --menta:#CDEFD9; --menta-d:#2E7D52; --mel:#FFE7B8; --lilas:#E6DDFB;
-  --line:#F3D9E0; --r:22px;
+  --bg:#FFF6FA; --card:#FFFFFF; --ink:#0E1F4D; --muted:#5F6A8A;
+  --azul:#003387; --vermelho:#D70C0C;
+  --rosa:#F062A0; --rosa-d:#C8327A; --rosa-l:#FCD2E4; --rosa-xl:#FEECF4;
+  --ceu:#DCE6FB; --menta:#CDEFD9; --menta-d:#21714A; --mel:#FFE7B8;
+  --line:#F6DCE8; --r:22px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%}
-body{font-family:Poppins,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;min-height:100vh;overflow-x:hidden}
+body{font-family:Manrope,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;min-height:100vh;overflow-x:hidden}
 button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
 .wrap{max-width:520px;margin:0 auto;padding:0 16px calc(110px + env(safe-area-inset-bottom))}
-.serif{font-family:Fraunces,Georgia,serif;font-weight:500;letter-spacing:-.01em}
+h1,h2{font-weight:800;letter-spacing:-.02em}
+h1 em,h2 em{font-style:normal;color:var(--rosa)}
 
 /* topo */
-.top{display:flex;align-items:center;justify-content:space-between;padding:18px 0 6px}
-.brand{display:flex;align-items:center;gap:8px;font-weight:600;font-size:14px}
-.brand svg{width:22px;height:22px}
-.pill{font-size:12px;font-weight:500;background:var(--rosa-xl);color:var(--rosa-d);padding:5px 11px;border-radius:99px}
+.top{display:flex;align-items:center;justify-content:space-between;padding:18px 0 8px}
+.top img{height:30px;width:auto;display:block}
+.pill{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;background:var(--rosa-xl);color:var(--rosa-d);padding:6px 12px 6px 9px;border-radius:99px}
+.pill svg{width:14px;height:14px}
 
 /* telas */
 .screen{display:none;animation:in .45s ease both}
 .screen.on{display:block}
 @keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 
-.hero{position:relative;padding:26px 0 8px}
-.hero h1{font-size:44px;line-height:1.02;margin-bottom:14px}
-.hero h1 em{color:var(--rosa);font-style:italic}
-.hero p{font-size:16px;color:var(--muted);max-width:30ch}
-.blob{position:absolute;right:-30px;top:6px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#FFD0DC,#F58DA9 70%);filter:blur(.3px);opacity:.75;z-index:-1;animation:pulse 4s ease-in-out infinite}
-@keyframes pulse{50%{transform:scale(1.07)}}
+.hero{padding:16px 0 4px}
+.hero h1{font-size:36px;line-height:1.08;margin-bottom:10px}
+.hero p{font-size:15.5px;color:var(--muted);max-width:34ch}
 
-.card{background:var(--card);border-radius:var(--r);padding:20px;margin-top:14px;box-shadow:0 1px 0 var(--line),0 10px 30px -18px rgba(184,58,94,.35)}
-.card h2{font-size:22px;line-height:1.2;margin-bottom:6px}
+/* ===== Ali ===== */
+.ali-box{display:grid;grid-template-columns:132px 1fr;align-items:end;gap:6px;margin-top:10px;position:relative}
+.ali-palco{position:relative;height:178px;cursor:pointer}
+.ali-palco::after{content:"";position:absolute;left:22px;right:22px;bottom:2px;height:12px;border-radius:50%;background:rgba(14,31,77,.12);filter:blur(3px);animation:sombra 3.2s ease-in-out infinite}
+.ali-mov{position:absolute;inset:0;transform-origin:50% 100%}
+.ali-resp{position:absolute;inset:0;transform-origin:50% 100%;animation:respira 3.2s ease-in-out infinite}
+.ali-corpo{position:absolute;left:50%;transform:translateX(-50%)}
+.ali-corpo img{position:absolute;pointer-events:none;user-select:none;-webkit-user-drag:none}
+#aliImg{inset:0;width:100%;height:100%}
+#aliBoca{display:none}
+@keyframes respira{50%{transform:scale(1.012,.988)}}
+@keyframes sombra{50%{transform:scaleX(.94)}}
+.ali-mov.pula{animation:pula .6s cubic-bezier(.3,.7,.4,1)}
+@keyframes pula{0%{transform:scale(1.06,.9)}30%{transform:translateY(-26px) scale(.96,1.05)}60%{transform:translateY(0) scale(1.05,.93)}80%{transform:scale(.99,1.02)}100%{transform:none}}
+.ali-mov.troca{animation:troca .32s ease-out}
+@keyframes troca{0%{transform:scale(1.04,.94)}60%{transform:scale(.98,1.03)}100%{transform:none}}
+.ali-mov.entra{animation:entra .7s cubic-bezier(.2,.9,.3,1.2)}
+@keyframes entra{from{transform:translateX(-90px) rotate(-8deg);opacity:0}to{transform:none;opacity:1}}
+.laco{position:absolute;left:-8px;top:-14px;width:28px;height:28px;z-index:2;transform:rotate(14deg);animation:laco 3.2s ease-in-out infinite}
+@keyframes laco{50%{transform:rotate(4deg) translateY(-3px)}}
+
+.balao{position:relative;background:#fff;border-radius:20px 20px 20px 6px;padding:14px 16px 12px;margin-bottom:58px;box-shadow:0 10px 26px -16px rgba(200,50,122,.55);min-height:76px}
+.balao::before{content:"";position:absolute;left:-8px;bottom:12px;border:9px solid transparent;border-right-color:#fff;border-left:0}
+.balao p{font-size:14.5px;font-weight:600;line-height:1.42;min-height:42px}
+.balao .ops{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.balao .ops:empty{display:none}
+.op{font-size:13px;font-weight:700;background:var(--rosa-xl);color:var(--rosa-d);padding:7px 12px;border-radius:99px;transition:.15s}
+.op:hover{background:var(--rosa);color:#fff}
+.som{position:absolute;right:8px;top:-12px;width:30px;height:30px;border-radius:50%;background:var(--azul);color:#fff;font-size:13px;display:grid;place-items:center;box-shadow:0 4px 10px -4px rgba(0,51,135,.6)}
+.dica-som{position:absolute;right:42px;top:-11px;font-size:11px;font-weight:700;background:var(--azul);color:#fff;padding:4px 9px;border-radius:99px;white-space:nowrap;animation:pisca 1.6s ease-in-out infinite}
+@keyframes pisca{50%{opacity:.55}}
+
+/* cards */
+.card{background:var(--card);border-radius:var(--r);padding:20px;margin-top:14px;box-shadow:0 1px 0 var(--line),0 10px 30px -18px rgba(200,50,122,.35)}
+.card h2{font-size:21px;line-height:1.2;margin-bottom:6px}
 .card p{color:var(--muted);font-size:14.5px}
-.kicker{font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--rosa-d);margin-bottom:6px}
+.kicker{font-size:11.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--rosa-d);margin-bottom:6px}
 
-.tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
-.tile{border-radius:var(--r);padding:16px;text-align:left;min-height:128px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .2s}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px}
+.tile{border-radius:var(--r);padding:16px;text-align:left;min-height:124px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .2s}
 .tile:active{transform:scale(.97)}
-.tile b{font-size:15.5px;font-weight:600;line-height:1.25}
-.tile span{font-size:12.5px;opacity:.75}
+.tile b{font-size:15.5px;font-weight:800;line-height:1.25}
+.tile span{font-size:12.5px;opacity:.75;font-weight:500}
 .tile .ic{font-size:26px}
-.t1{background:var(--rosa-l)} .t2{background:var(--mel)} .t3{background:var(--menta)} .t4{background:var(--lilas)}
+.t1{background:var(--rosa-l)} .t2{background:var(--ceu)} .t3{background:var(--mel)} .t4{background:var(--menta)}
 
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--rosa);color:#fff;font-weight:600;font-size:15px;padding:14px 20px;border-radius:99px;width:100%;transition:background .2s,transform .15s}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--rosa);color:#fff;font-weight:800;font-size:15px;padding:14px 20px;border-radius:99px;width:100%;transition:background .2s,transform .15s}
 .btn:hover{background:var(--rosa-d)} .btn:active{transform:scale(.98)}
 .btn.ghost{background:var(--rosa-xl);color:var(--rosa-d)}
 .btn.ghost:hover{background:var(--rosa-l)}
+.btn.azul{background:var(--azul)} .btn.azul:hover{background:#00266A}
 .row{display:flex;gap:10px;margin-top:12px}
 .row .btn{flex:1}
 
-/* passos do toque */
-.steps{margin-top:6px}
+/* passos */
 .step{display:grid;grid-template-columns:46px 1fr;gap:14px;padding:16px 0;border-bottom:1px dashed var(--line)}
-.step:last-child{border:0}
-.num{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-family:Fraunces,serif;font-size:20px;background:var(--rosa-xl);color:var(--rosa-d)}
+.step:last-child{border:0;padding-bottom:4px}
+.step:first-child{padding-top:4px}
+.num{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-size:19px;font-weight:800;background:var(--rosa-xl);color:var(--rosa-d)}
 .step b{display:block;font-size:15.5px;margin-bottom:2px}
 .step p{font-size:14px}
-
 .signs{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.sign{font-size:13px;background:var(--rosa-xl);border-radius:12px;padding:8px 11px;color:var(--ink)}
+.sign{font-size:13px;font-weight:600;background:var(--rosa-xl);border-radius:12px;padding:8px 11px}
 
 /* timer */
-.timer{display:flex;flex-direction:column;align-items:center;padding:8px 0 4px}
-.ring{position:relative;width:190px;height:190px;margin:10px 0 14px}
+.timer{display:flex;flex-direction:column;align-items:center}
+.ring{position:relative;width:186px;height:186px;margin:10px 0 14px}
 .ring svg{transform:rotate(-90deg)}
 .ring .lbl{position:absolute;inset:0;display:grid;place-items:center;text-align:center}
-.ring .lbl b{font-family:Fraunces,serif;font-size:40px;font-weight:500;display:block;line-height:1}
-.ring .lbl small{font-size:12.5px;color:var(--muted)}
-.cue{font-size:15px;text-align:center;min-height:48px;max-width:30ch}
+.ring .lbl b{font-size:40px;font-weight:800;display:block;line-height:1}
+.ring .lbl small{font-size:12.5px;color:var(--muted);font-weight:600}
+.cue{font-size:15px;text-align:center;min-height:48px;max-width:30ch;font-weight:500}
 
 /* lembrete */
 .days{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin:14px 0 6px}
-.day{aspect-ratio:1;border-radius:12px;background:var(--rosa-xl);font-size:14px;font-weight:500;transition:.15s}
+.day{aspect-ratio:1;border-radius:12px;background:var(--rosa-xl);font-size:14px;font-weight:700;transition:.15s}
 .day:hover{background:var(--rosa-l)}
 .day.sel{background:var(--rosa);color:#fff;transform:scale(1.06)}
 .chosen{font-size:14px;color:var(--muted);margin:6px 0 14px}
 .chosen b{color:var(--rosa-d)}
-.saved{display:none;margin-top:12px;background:var(--menta);color:var(--menta-d);border-radius:14px;padding:11px 14px;font-size:13.5px;font-weight:500}
+.saved{display:none;margin-top:12px;background:var(--menta);color:var(--menta-d);border-radius:14px;padding:11px 14px;font-size:13.5px;font-weight:700}
 .saved.on{display:block;animation:in .3s both}
-
 .age{display:flex;align-items:center;gap:12px;margin:14px 0 10px}
 .age input{width:100%;accent-color:var(--rosa)}
-.age output{font-family:Fraunces,serif;font-size:30px;min-width:64px;text-align:right;color:var(--rosa-d)}
+.age output{font-size:30px;font-weight:800;min-width:64px;text-align:right;color:var(--rosa-d)}
 .answer{background:var(--rosa-xl);border-radius:16px;padding:14px 16px;font-size:14.5px}
 .answer b{display:block;margin-bottom:3px}
 .src{font-size:11.5px;color:var(--muted);margin-top:10px}
 
 /* mito ou verdade */
-.deck{position:relative;height:330px;margin-top:14px}
-.qcard{position:absolute;inset:0;background:var(--card);border-radius:28px;padding:26px 22px;display:flex;flex-direction:column;box-shadow:0 18px 40px -22px rgba(184,58,94,.45);transition:transform .45s cubic-bezier(.2,.8,.2,1),opacity .45s}
-.qcard .q{font-family:Fraunces,serif;font-size:25px;line-height:1.2;flex:1;display:flex;align-items:center}
+.deck{position:relative;height:320px;margin-top:6px}
+.qcard{position:absolute;inset:0;background:var(--card);border-radius:28px;padding:24px 22px;display:flex;flex-direction:column;box-shadow:0 18px 40px -22px rgba(200,50,122,.5);transition:transform .45s cubic-bezier(.2,.8,.2,1),opacity .45s}
+.qcard .q{font-size:24px;font-weight:800;line-height:1.22;letter-spacing:-.01em;flex:1;display:flex;align-items:center}
 .qcard .reveal{display:none}
 .qcard.done .reveal{display:block;animation:in .35s both}
-.qcard.done .q{font-size:19px;flex:0;margin-bottom:12px;color:var(--muted)}
-.verdict{display:inline-block;font-weight:700;font-size:13px;letter-spacing:.08em;padding:6px 12px;border-radius:99px;margin-bottom:10px}
+.qcard.done .q{font-size:17px;flex:0;margin-bottom:12px;color:var(--muted)}
+.verdict{display:inline-block;font-weight:800;font-size:13px;letter-spacing:.08em;padding:6px 12px;border-radius:99px;margin-bottom:10px}
 .v-ok{background:var(--menta);color:var(--menta-d)} .v-no{background:var(--mel);color:#8A5A00}
-.reveal p{font-size:15px;color:var(--ink)}
-.reveal .hit{font-size:13px;color:var(--muted);margin-top:10px}
+.reveal p{font-size:15px}
 .qcard.back1{transform:translateY(12px) scale(.95);opacity:.6}
 .qcard.back2{transform:translateY(24px) scale(.9);opacity:.3}
 .qcard.gone{transform:translateX(-120%) rotate(-12deg);opacity:0;pointer-events:none}
-.score{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted);margin-top:4px}
+.score{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:600;color:var(--muted);margin-top:4px}
 .dots{display:flex;gap:5px}
 .dots i{width:7px;height:7px;border-radius:50%;background:var(--line)}
 .dots i.on{background:var(--rosa)}
 
-/* dar um toque */
+/* lembrar alguém */
 .tones{display:flex;flex-direction:column;gap:8px;margin:14px 0}
 .tone{text-align:left;border:2px solid var(--line);border-radius:16px;padding:12px 14px;font-size:14px;background:#fff;transition:.15s}
 .tone.sel{border-color:var(--rosa);background:var(--rosa-xl)}
 .tone b{display:block;font-size:13px;color:var(--rosa-d);margin-bottom:2px}
-.counter{text-align:center;margin-top:16px;font-size:13.5px;color:var(--muted)}
-.counter b{font-family:Fraunces,serif;font-size:34px;font-weight:500;color:var(--rosa);display:block;line-height:1.1}
+.counter{text-align:center;margin-top:16px;font-size:13.5px;color:var(--muted);font-weight:600}
+.counter b{font-size:34px;font-weight:800;color:var(--rosa);display:block;line-height:1.1}
 
-.note{font-size:12px;color:var(--muted);text-align:center;margin:26px auto 0;max-width:40ch}
+.note{font-size:12px;color:var(--muted);text-align:center;margin:26px auto 0;max-width:42ch}
 
 /* nav */
-nav{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom));transform:translateX(-50%);width:min(488px,calc(100% - 32px));background:rgba(255,255,255,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:24px;box-shadow:0 12px 34px -14px rgba(59,31,43,.35);display:grid;grid-template-columns:repeat(4,1fr);padding:7px;z-index:10}
-nav button{display:flex;flex-direction:column;align-items:center;gap:1px;padding:7px 2px;border-radius:17px;font-size:11px;font-weight:500;color:var(--muted);transition:.2s}
+nav{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom));transform:translateX(-50%);width:min(488px,calc(100% - 32px));background:rgba(255,255,255,.93);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:24px;box-shadow:0 12px 34px -14px rgba(14,31,77,.35);display:grid;grid-template-columns:repeat(4,1fr);padding:7px;z-index:10}
+nav button{display:flex;flex-direction:column;align-items:center;gap:1px;padding:7px 2px;border-radius:17px;font-size:11px;font-weight:700;color:var(--muted);transition:.2s}
 nav button .i{font-size:19px;line-height:1.2}
 nav button.on{background:var(--rosa-xl);color:var(--rosa-d)}
 
-/* confete de corações */
 .heart{position:fixed;pointer-events:none;font-size:22px;z-index:50;animation:float 1.6s ease-out forwards}
 @keyframes float{to{transform:translate(var(--dx),-180px) rotate(var(--rot));opacity:0}}
 
-@media (max-width:380px){.hero h1{font-size:37px}.qcard .q{font-size:22px}}
+@media (max-width:380px){.hero h1{font-size:31px}.qcard .q{font-size:21px}.ali-box{grid-template-columns:116px 1fr}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
-<div class="wrap">
+<svg width="0" height="0" style="position:absolute"><symbol id="laco" viewBox="0 0 64 64"><path d="M32 6c-9 0-15 7-15 15 0 7 4 13 9 20L14 58l8 2 10-15 10 15 8-2-12-17c5-7 9-13 9-20 0-8-6-15-15-15zm0 9c4 0 6 3 6 6 0 4-3 9-6 13-3-4-6-9-6-13 0-3 2-6 6-6z" fill="#F062A0"/></symbol></svg>
 
+<div class="wrap">
   <header class="top">
-    <div class="brand">
-      <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6c-9 0-15 7-15 15 0 7 4 13 9 20L14 58l8 2 10-15 10 15 8-2-12-17c5-7 9-13 9-20 0-8-6-15-15-15zm0 9c4 0 6 3 6 6 0 4-3 9-6 13-3-4-6-9-6-13 0-3 2-6 6-6z" fill="#E2557A"/></svg>
-      Dá um Toque
-    </div>
-    <span class="pill">Outubro Rosa · Better</span>
+    <img src="img/alumni.svg" alt="Alumni by Better">
+    <span class="pill"><svg><use href="#laco"/></svg>Outubro Rosa</span>
   </header>
+
+  <!-- Ali (muda de tela junto com a navegação) -->
+  <div class="ali-box" id="aliBox">
+    <div class="ali-palco" id="aliPalco" title="Cutuque o Ali">
+      <div class="ali-mov" id="aliMov"><div class="ali-resp"><div class="ali-corpo" id="aliCorpo"><img id="aliImg" alt="Ali, o mascote da Alumni"><img id="aliBoca" alt=""></div></div></div>
+    </div>
+    <div class="balao">
+      <svg class="laco"><use href="#laco"/></svg>
+      <button class="som" id="somBtn" aria-label="Som do Ali">🔊</button>
+      <span class="dica-som" id="dicaSom">toque pra ouvir o Ali</span>
+      <p id="aliTxt"></p>
+      <div class="ops" id="aliOps"></div>
+    </div>
+  </div>
 
   <!-- INÍCIO -->
   <section class="screen on" id="s-inicio">
     <div class="hero">
-      <div class="blob"></div>
-      <h1 class="serif">Um toque<br>por mês.<br><em>Só isso.</em></h1>
-      <p>Conhecer o próprio corpo é o jeito mais simples de perceber quando algo muda. Leva dois minutos, e a gente lembra você.</p>
+      <h1>Dois minutos por mês para <em>conhecer o seu corpo.</em></h1>
+      <p>O autoexame ajuda você a perceber quando algo muda. A gente lembra você, e você lembra quem você ama.</p>
     </div>
-
-    <div class="tiles">
-      <button class="tile t1" data-go="toque"><span class="ic">🤍</span><div><b>Como fazer o toque</b><br><span>3 passos e um cronômetro</span></div></button>
+    <div class="tiles" style="margin-top:16px">
+      <button class="tile t1" data-go="autoexame"><span class="ic">🤍</span><div><b>Autoexame em 3 passos</b><br><span>Com cronômetro guiado</span></div></button>
       <button class="tile t2" data-go="lembrete"><span class="ic">🗓️</span><div><b>Meu lembrete</b><br><span>Um dia por mês na agenda</span></div></button>
       <button class="tile t3" data-go="mito"><span class="ic">✨</span><div><b>Mito ou verdade?</b><br><span>7 cartas rapidinhas</span></div></button>
-      <button class="tile t4" data-go="dar"><span class="ic">💌</span><div><b>Dar um toque</b><br><span>Lembre alguém que você ama</span></div></button>
+      <button class="tile t4" data-go="lembrar"><span class="ic">💌</span><div><b>Lembrar alguém</b><br><span>Uma mensagem com carinho</span></div></button>
     </div>
-
     <div class="card">
       <div class="kicker">Por que vale</div>
-      <h2 class="serif">Descoberto cedo, ele tem muita chance de cura.</h2>
-      <p>O câncer de mama é o mais comum entre as mulheres no Brasil. Quando é encontrado no início, as chances de tratamento dar certo são muito altas. Por isso o toque, a consulta e a mamografia andam juntos.</p>
+      <h2>Descoberto cedo, ele tem <em>muita chance de cura.</em></h2>
+      <p>O câncer de mama é o mais comum entre as mulheres no Brasil. Quando é encontrado no início, as chances de o tratamento dar certo são muito altas. Por isso autoexame, consulta e mamografia andam juntos.</p>
     </div>
   </section>
 
-  <!-- TOQUE -->
-  <section class="screen" id="s-toque">
-    <div class="hero" style="padding-bottom:0">
-      <h1 class="serif" style="font-size:36px">Dois minutos<br><em>pra você.</em></h1>
-      <p>No banho ou na hora de trocar de roupa. Sem pressa e sem medo: a ideia é conhecer o seu normal.</p>
-    </div>
-
+  <!-- AUTOEXAME -->
+  <section class="screen" id="s-autoexame">
     <div class="card">
-      <div class="steps">
-        <div class="step"><div class="num">1</div><div><b>Olhe</b><p>Na frente do espelho, braços para baixo e depois para cima. Repare no formato, na pele e nos mamilos.</p></div></div>
-        <div class="step"><div class="num">2</div><div><b>Toque</b><p>Com a ponta dos dedos, faça pequenos círculos pela mama inteira, incluindo a região da axila. Pele molhada ajuda.</p></div></div>
-        <div class="step"><div class="num">3</div><div><b>Perceba</b><p>Notou algo diferente do mês passado? Anote e converse com um médico. Na maioria das vezes não é nada grave, mas quem decide é o exame.</p></div></div>
-      </div>
+      <div class="step"><div class="num">1</div><div><b>Olhe</b><p>Na frente do espelho, braços para baixo e depois para cima. Repare no formato, na pele e nos mamilos.</p></div></div>
+      <div class="step"><div class="num">2</div><div><b>Sinta</b><p>Com a ponta dos dedos, faça pequenos círculos pela mama inteira, incluindo a região da axila. No banho, com a pele molhada, fica mais fácil.</p></div></div>
+      <div class="step"><div class="num">3</div><div><b>Repare</b><p>Algo diferente do mês passado? Anote e converse com um médico. Na maioria das vezes não é nada grave, mas quem confirma é o exame.</p></div></div>
     </div>
-
     <div class="card">
-      <div class="kicker">Cronômetro do toque</div>
+      <div class="kicker">Cronômetro do autoexame</div>
       <div class="timer">
         <div class="ring">
-          <svg width="190" height="190" viewBox="0 0 190 190">
-            <circle cx="95" cy="95" r="84" fill="none" stroke="#FDE9EE" stroke-width="12"/>
-            <circle id="arc" cx="95" cy="95" r="84" fill="none" stroke="#E2557A" stroke-width="12" stroke-linecap="round" stroke-dasharray="527.8" stroke-dashoffset="527.8"/>
+          <svg width="186" height="186" viewBox="0 0 186 186">
+            <circle cx="93" cy="93" r="82" fill="none" stroke="#FEECF4" stroke-width="12"/>
+            <circle id="arc" cx="93" cy="93" r="82" fill="none" stroke="#F062A0" stroke-width="12" stroke-linecap="round" stroke-dasharray="515.2" stroke-dashoffset="515.2"/>
           </svg>
           <div class="lbl"><div><b id="tLeft">2:00</b><small id="tPhase">pronta?</small></div></div>
         </div>
@@ -204,7 +234,6 @@ nav button.on{background:var(--rosa-xl);color:var(--rosa-d)}
         <div class="row" style="width:100%"><button class="btn" id="tBtn">▶ Começar</button></div>
       </div>
     </div>
-
     <div class="card">
       <div class="kicker">Fique de olho se aparecer</div>
       <div class="signs">
@@ -215,97 +244,193 @@ nav button.on{background:var(--rosa-xl);color:var(--rosa-d)}
         <span class="sign">Saída de líquido sem apertar</span>
         <span class="sign">Íngua na axila ou no pescoço</span>
       </div>
-      <p style="margin-top:12px">O toque não substitui a consulta nem a mamografia. Ele ajuda você a chegar no médico sabendo o que mudou.</p>
+      <p style="margin-top:12px">O autoexame não substitui a consulta nem a mamografia. Ele ajuda você a chegar ao médico sabendo o que mudou.</p>
     </div>
   </section>
 
   <!-- LEMBRETE -->
   <section class="screen" id="s-lembrete">
-    <div class="hero" style="padding-bottom:0">
-      <h1 class="serif" style="font-size:36px">Escolha<br><em>o seu dia.</em></h1>
-      <p>Todo mês, no mesmo dia, sua agenda dá um toquezinho. Nada fica salvo com a gente.</p>
-    </div>
-
     <div class="card">
-      <div class="kicker">Toque do mês</div>
+      <div class="kicker">Autoexame do mês</div>
+      <h2>Escolha <em>o seu dia.</em></h2>
+      <p>Todo mês, no mesmo dia, sua agenda avisa. Nada fica salvo com a gente.</p>
       <div class="days" id="days"></div>
-      <p class="chosen" id="chosen">Toque em um dia. Dica: se você menstrua, uma semana depois do início do ciclo é quando as mamas ficam menos sensíveis.</p>
+      <p class="chosen" id="chosen">Dica: se você menstrua, uma semana depois do início do ciclo é quando as mamas ficam menos sensíveis.</p>
       <button class="btn" id="gcal">Adicionar ao Google Agenda</button>
       <div class="row"><button class="btn ghost" id="ics">Baixar para Outlook / iPhone</button></div>
       <div class="saved" id="saved">Pronto! Seu lembrete mensal está a caminho da agenda. 💗</div>
     </div>
-
     <div class="card">
       <div class="kicker">E a mamografia?</div>
-      <h2 class="serif">Qual é o seu momento?</h2>
+      <h2>Qual é o seu momento?</h2>
       <div class="age"><input type="range" id="age" min="18" max="85" value="35" aria-label="Sua idade"><output id="ageOut">35</output></div>
       <div class="answer" id="ageAns"></div>
-      <div class="row"><button class="btn ghost" id="mamoBtn">Lembrete anual de consulta</button></div>
+      <div class="row"><button class="btn azul" id="mamoBtn">Lembrete anual de consulta</button></div>
       <p class="src">Referências: INCA / Ministério da Saúde e Sociedade Brasileira de Mastologia. As recomendações podem mudar com o seu histórico; quem fecha o plano é o seu médico.</p>
     </div>
   </section>
 
   <!-- MITO OU VERDADE -->
   <section class="screen" id="s-mito">
-    <div class="hero" style="padding-bottom:0">
-      <h1 class="serif" style="font-size:36px">Mito ou<br><em>verdade?</em></h1>
-      <p>Sete cartas para descomplicar o assunto. Chute e veja.</p>
-    </div>
     <div class="deck" id="deck"></div>
     <div class="score"><div class="dots" id="dots"></div><span id="scoreTxt">0 acertos</span></div>
-    <div class="row" id="qBtns">
-      <button class="btn ghost" data-a="mito">Mito</button>
-      <button class="btn" data-a="verdade">Verdade</button>
-    </div>
+    <div class="row" id="qBtns"></div>
   </section>
 
-  <!-- DAR UM TOQUE -->
-  <section class="screen" id="s-dar">
-    <div class="hero" style="padding-bottom:0">
-      <h1 class="serif" style="font-size:36px">Dê um toque<br><em>em alguém.</em></h1>
-      <p>Mãe, irmã, amiga, parceira, colega de time. Às vezes o lembrete que faltava vem de você.</p>
-    </div>
+  <!-- LEMBRAR ALGUÉM -->
+  <section class="screen" id="s-lembrar">
     <div class="card">
-      <div class="kicker">Escolha o jeitinho</div>
+      <div class="kicker">Escolha o jeito</div>
       <div class="tones" id="tones"></div>
       <button class="btn" id="zap">Enviar pelo WhatsApp</button>
       <div class="row"><button class="btn ghost" id="copy">Copiar mensagem</button></div>
-      <div class="counter"><b id="count">0</b>toques que você já deu neste Outubro</div>
+      <div class="counter"><b id="count">0</b>lembretes que você já mandou neste Outubro</div>
     </div>
     <div class="card">
       <div class="kicker">Para os homens do time</div>
-      <p>Homens também podem ter câncer de mama (cerca de 1% dos casos), então os sinais valem para todo mundo. E o seu toque para as mulheres da sua vida conta muito.</p>
+      <p>Homens também podem ter câncer de mama (cerca de 1% dos casos), então os sinais valem para todo mundo. E o seu lembrete para as mulheres da sua vida conta muito.</p>
     </div>
   </section>
 
-  <p class="note">Este app é uma ação de conscientização da Better e não substitui avaliação médica. Na dúvida, procure seu plano de saúde ou a Unidade Básica de Saúde mais próxima.</p>
+  <p class="note">Ação de conscientização da Alumni by Better. Este app não substitui avaliação médica; na dúvida, procure seu plano de saúde ou a Unidade Básica de Saúde mais próxima.</p>
 </div>
 
 <nav id="nav">
   <button data-go="inicio" class="on"><span class="i">🎀</span>Início</button>
-  <button data-go="toque"><span class="i">🤍</span>O toque</button>
+  <button data-go="autoexame"><span class="i">🤍</span>Autoexame</button>
   <button data-go="lembrete"><span class="i">🗓️</span>Lembrete</button>
-  <button data-go="dar"><span class="i">💌</span>Dar toque</button>
+  <button data-go="lembrar"><span class="i">💌</span>Lembrar</button>
 </nav>
 
+<script src="ali-voz.js"></script>
 <script>
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
 const store = {
-  get(k, d){ try{ const v = localStorage.getItem('toque.'+k); return v===null?d:JSON.parse(v) }catch(e){ return d } },
-  set(k, v){ try{ localStorage.setItem('toque.'+k, JSON.stringify(v)) }catch(e){} }
+  get(k, d){ try{ const v = localStorage.getItem('rosa.'+k); return v===null?d:JSON.parse(v) }catch(e){ return d } },
+  set(k, v){ try{ localStorage.setItem('rosa.'+k, JSON.stringify(v)) }catch(e){} }
 };
 const APP_URL = location.origin + location.pathname;
 
-/* navegação */
+/* ================= ALI ================= */
+// poses: altura total e base dos pés (px da imagem), para todas ficarem do mesmo tamanho e no chão
+const POSES = {"coracao":[290,561,560.4,70.4,110,143.2,68.4,9.6],"aceno":[384,584,560.8,165.2,118.8,137.6,80,9.6],"apontaBaixo":[385,588,560.8,141.2,116,136.4,77.6,9.6],"joinha":[372,579,560.4,85.6,108.4,140,86.4,9.6],"pensa":[258,605,582.4,62.4,140.8,137.6,82,9.6],"abre":[536,583,560.8,230,118.4,138,79.6,9.6],"dedo":[391,586,562.8,153.6,108.4,132.4,83.2,9.6]}; // w, h, base dos pés, boca x/y/w/h/lábio
+const CORPO = 168; // altura do corpo em px na tela
+const POSE_DA_FALA = {oi:'aceno',pergunta:'abre',jaFiz:'joinha',aindaNao:'coracao',comoFaz:'apontaBaixo',autoexame:'apontaBaixo',cronometro:'dedo',terminou:'joinha',lembrete:'apontaBaixo',combinado:'joinha',mito:'pensa',acertou:'abre',errou:'pensa',fimQuiz:'coracao',lembrar:'coracao',enviou:'abre'};
+const cache = {};
+Object.keys(POSES).forEach(p => ['', '-boca', '-fechada'].forEach(v => { const i = new Image(); i.src = `img/ali/${p}${v}.webp`; cache[p+v] = i }));
+
+const img = $('#aliImg'), bocaImg = $('#aliBoca'), corpo = $('#aliCorpo'), mov = $('#aliMov');
+const ESC = CORPO / 561;
+let pose = 'aceno', falando = null;
+// falando = null: sorriso parado; 0–1: boca aberta (peça da boca por cima do rosto sem boca)
+function mostra(p, abre=null){
+  if (p !== pose){ mov.classList.remove('troca'); void mov.offsetWidth; mov.classList.add('troca') }
+  const [w, h, base, bx, by, bw, bh, lab] = POSES[p];
+  if (p !== pose || (abre===null) !== (falando===null)){
+    img.src = `img/ali/${p}${abre===null ? '' : '-fechada'}.webp`;
+    bocaImg.src = `img/ali/${p}-boca.webp`;
+  }
+  pose = p; falando = abre;
+  Object.assign(corpo.style, {width:w*ESC+'px', height:h*ESC+'px', bottom:(-(h-base)*ESC + 6)+'px'});
+  bocaImg.style.display = abre===null ? 'none' : 'block';
+  if (abre !== null){
+    const k = 0.62 + 0.38 * Math.max(0, Math.min(1, abre)); // nunca fecha de todo
+    Object.assign(bocaImg.style, {left:bx*ESC+'px', top:by*ESC+'px', width:bw*ESC+'px', height:bh*ESC+'px', transformOrigin:`50% ${lab*ESC}px`, transform:`scaleY(${k})`});
+  }
+}
+function anima(c){ mov.classList.remove(c); void mov.offsetWidth; mov.classList.add(c); setTimeout(() => mov.classList.remove(c), 800) }
+
+// voz por WebAudio (o navegador só libera depois do primeiro toque)
+let ctx = null, buffers = {}, fonte = null, mudo = store.get('mudo', false), liberado = false, pendente = null;
+const somBtn = $('#somBtn'), dica = $('#dicaSom');
+const pintaSom = () => { somBtn.textContent = mudo ? '🔇' : '🔊'; dica.style.display = (!liberado && !mudo) ? '' : 'none' };
+pintaSom();
+async function carrega(id){
+  if (buffers[id]) return buffers[id];
+  const r = await fetch(`som/${id}.mp3`); const a = await r.arrayBuffer();
+  return buffers[id] = await ctx.decodeAudioData(a);
+}
+function libera(){
+  if (liberado) return;
+  liberado = true;
+  try { ctx = new (window.AudioContext || window.webkitAudioContext)(); ctx.resume() } catch(e){}
+  pintaSom();
+  if (pendente && !mudo){ const p = pendente; pendente = null; fala(p.id, p.depois, true) }
+}
+['pointerdown','keydown'].forEach(ev => document.addEventListener(ev, libera, {once:false, capture:true}));
+somBtn.onclick = e => { e.stopPropagation(); mudo = !mudo; store.set('mudo', mudo); if (mudo && fonte){ try{fonte.stop()}catch(_){} } pintaSom() };
+
+let falaId = 0, timers = [];
+const limpa = () => { timers.forEach(clearTimeout); timers = []; if (fonte){ try{ fonte.onended = null; fonte.stop() }catch(_){} fonte = null } };
+async function fala(id, depois, repetir){
+  const f = ALI_VOZ[id]; if (!f) return;
+  limpa(); const meu = ++falaId;
+  const p = POSE_DA_FALA[id] || 'coracao';
+  if (!repetir) $('#aliOps').innerHTML = '';
+  mostra(p, 0);
+  const txt = $('#aliTxt'), dur = f.fim * 1000;
+  txt.textContent = '';
+  // digita no ritmo da fala
+  const chars = [...f.fala], passo = Math.max(18, Math.min(45, dur / chars.length));
+  chars.forEach((c, i) => timers.push(setTimeout(() => { if (meu===falaId) txt.textContent += c }, i*passo)));
+  let t0 = performance.now(), usaAudio = false;
+  if (liberado && !mudo && ctx){
+    try {
+      const buf = await carrega(id); if (meu !== falaId) return;
+      fonte = ctx.createBufferSource(); fonte.buffer = buf; fonte.connect(ctx.destination); fonte.start(); usaAudio = true; t0 = performance.now();
+    } catch(e){}
+  } else if (!liberado) pendente = {id, depois};
+  // boca acompanha o volume da voz
+  const tick = () => {
+    if (meu !== falaId) return;
+    const t = (performance.now() - t0) / 1000, q = Math.floor(t * 30);
+    if (t < f.fim){
+      const v = usaAudio ? (f.env[q] || 0) / 100 : Math.max(0, Math.sin(t*13)) * .8;
+      mostra(pose, v);
+      requestAnimationFrame(tick);
+    } else {
+      mostra(pose, null);
+      if (depois) timers.push(setTimeout(() => meu===falaId && depois(), 350));
+    }
+  };
+  requestAnimationFrame(tick);
+}
+function opcoes(lista){
+  $('#aliOps').innerHTML = lista.map((o, i) => `<button class="op" data-op="${i}">${o[0]}</button>`).join('');
+  $$('#aliOps .op').forEach(b => b.onclick = () => { const o = lista[+b.dataset.op]; $('#aliOps').innerHTML = ''; o[1]() });
+}
+// cutucar o Ali
+let cutucadas = 0;
+$('#aliPalco').onclick = () => { anima('pula'); cutucadas++; hearts(...centro($('#aliPalco')), 4) };
+
+const FALA_DA_TELA = {
+  inicio: () => fala('oi', () => fala('pergunta', () => opcoes([
+    ['Já fiz! 🙌', () => fala('jaFiz', () => opcoes([['Marcar o próximo', () => go('lembrete')]]))],
+    ['Ainda não', () => fala('aindaNao', () => opcoes([['Bora fazer agora', () => go('autoexame')]]))],
+    ['Como faz?', () => fala('comoFaz', () => go('autoexame'))],
+  ]))),
+  autoexame: () => fala('autoexame'),
+  lembrete: () => fala('lembrete'),
+  mito: () => fala('mito'),
+  lembrar: () => fala('lembrar'),
+};
+
+/* ================= navegação ================= */
+let tela = null;
 function go(id){
+  if (id === tela) return;
+  const primeira = tela === null;
+  tela = id;
   $$('.screen').forEach(s => s.classList.toggle('on', s.id === 's-'+id));
   $$('nav button').forEach(b => b.classList.toggle('on', b.dataset.go === id));
   window.scrollTo({top:0, behavior:'smooth'});
   history.replaceState(null, '', '#'+id);
+  if (!primeira) anima('pula');
+  FALA_DA_TELA[id] && FALA_DA_TELA[id]();
 }
 document.addEventListener('click', e => { const b = e.target.closest('[data-go]'); if (b) go(b.dataset.go) });
-if (location.hash && $('#s-'+location.hash.slice(1))) go(location.hash.slice(1));
 
+const centro = el => { const r = el.getBoundingClientRect(); return [r.left + r.width/2, r.top] };
 function hearts(x, y, n=8){
   for (let i=0;i<n;i++){
     const h = document.createElement('span'); h.className='heart'; h.textContent = ['💗','🎀','🤍'][i%3];
@@ -315,18 +440,18 @@ function hearts(x, y, n=8){
     document.body.appendChild(h); setTimeout(() => h.remove(), 1900);
   }
 }
-const burst = el => { const r = el.getBoundingClientRect(); hearts(r.left + r.width/2, r.top) };
+const burst = el => hearts(...centro(el));
 
-/* cronômetro */
+/* ================= cronômetro ================= */
 const CUES = [
   [0,  'Olhe', 'Braços para baixo. Repare no formato e na pele, sem julgamento.'],
   [20, 'Olhe', 'Agora braços para cima. Algo repuxou ou mudou de lugar?'],
-  [40, 'Toque', 'Mama esquerda: pequenos círculos com a ponta dos dedos, de fora para dentro.'],
-  [70, 'Toque', 'Mama direita, no mesmo ritmo. Respira fundo, está indo bem.'],
-  [100,'Perceba','Axilas, dos dois lados. E por último, aperte de leve os mamilos.'],
+  [40, 'Sinta', 'Mama esquerda: pequenos círculos com a ponta dos dedos, de fora para dentro.'],
+  [70, 'Sinta', 'Mama direita, no mesmo ritmo. Respire fundo, está indo bem.'],
+  [100,'Repare','Axilas, dos dois lados. Por último, aperte de leve os mamilos.'],
 ];
-const TOTAL = 120, ARC = 527.8;
-let tId = null, tLeft = TOTAL;
+const TOTAL = 120, ARC = 515.2;
+let tId = null, tLeft = TOTAL, jaFalouCrono = false;
 function renderTimer(){
   const el = TOTAL - tLeft;
   $('#tLeft').textContent = Math.floor(tLeft/60)+':'+String(tLeft%60).padStart(2,'0');
@@ -334,9 +459,10 @@ function renderTimer(){
   const c = [...CUES].reverse().find(c => el >= c[0]);
   if (tId) { $('#tPhase').textContent = c[1].toLowerCase(); $('#tCue').textContent = c[2] }
 }
-$('#tBtn').onclick = e => {
+$('#tBtn').onclick = () => {
   if (tId){ clearInterval(tId); tId=null; $('#tBtn').textContent='▶ Continuar'; $('#tPhase').textContent='pausado'; return }
   if (tLeft <= 0) tLeft = TOTAL;
+  if (!jaFalouCrono){ jaFalouCrono = true; fala('cronometro') }
   $('#tBtn').textContent = '❚❚ Pausar';
   tId = setInterval(() => {
     tLeft--; renderTimer();
@@ -344,12 +470,13 @@ $('#tBtn').onclick = e => {
       clearInterval(tId); tId=null;
       $('#tPhase').textContent='feito!'; $('#tCue').textContent='Pronto. Até o mês que vem. Se algo pareceu diferente, marque uma consulta. 💗';
       $('#tBtn').textContent='↺ Fazer de novo'; burst($('#tBtn'));
+      fala('terminou', () => opcoes([['Marcar o próximo', () => go('lembrete')]])); anima('pula');
     }
   }, 1000);
   renderTimer();
 };
 
-/* lembrete */
+/* ================= lembrete ================= */
 let day = store.get('day', null);
 const daysEl = $('#days');
 for (let d=1; d<=28; d++){
@@ -359,10 +486,9 @@ for (let d=1; d<=28; d++){
 }
 function paintDays(){
   $$('.day').forEach(b => b.classList.toggle('sel', +b.dataset.d === day));
-  if (day) $('#chosen').innerHTML = `Seu toque fica todo <b>dia ${day}</b>, às 8h, com 10 minutinhos na agenda.`;
+  if (day) $('#chosen').innerHTML = `Seu autoexame fica todo <b>dia ${day}</b>, às 8h, com 10 minutinhos reservados na agenda.`;
 }
 paintDays();
-
 const pad = n => String(n).padStart(2,'0');
 function nextDate(d){
   const now = new Date(); let y = now.getFullYear(), m = now.getMonth();
@@ -370,16 +496,14 @@ function nextDate(d){
   return {y, m:m+1, d};
 }
 const stamp = ({y,m,d}, h, min) => `${y}${pad(m)}${pad(d)}T${pad(h)}${pad(min)}00`;
-const TITLE = 'Toque do mês 💗', DESC = 'Dois minutinhos para você: olhe, toque, perceba. Guia e cronômetro: '+APP_URL;
-
-function needDay(btn){
+const TITLE = 'Autoexame do mês 🎀', DESC = 'Dois minutinhos para você: olhe, sinta, repare. O Ali guia você aqui: '+APP_URL;
+function needDay(){
   if (day) return false;
   $('#chosen').innerHTML = '<b>Escolha um dia ali em cima primeiro.</b>';
   daysEl.animate([{transform:'translateX(0)'},{transform:'translateX(-6px)'},{transform:'translateX(6px)'},{transform:'translateX(0)'}],{duration:300});
   return true;
 }
-function done(btn){ $('#saved').classList.add('on'); burst(btn) }
-
+function done(btn){ $('#saved').classList.add('on'); burst(btn); fala('combinado'); anima('pula') }
 $('#gcal').onclick = e => {
   if (needDay()) return;
   const s = nextDate(day);
@@ -390,15 +514,13 @@ $('#gcal').onclick = e => {
     + '&recur=' + encodeURIComponent('RRULE:FREQ=MONTHLY;BYMONTHDAY='+day);
   window.open(url, '_blank', 'noopener'); done(e.currentTarget);
 };
-
 function downloadIcs(name, ev){
-  const now = new Date(), dtstamp = now.toISOString().replace(/[-:]/g,'').split('.')[0]+'Z';
+  const dtstamp = new Date().toISOString().replace(/[-:]/g,'').split('.')[0]+'Z';
   const ics = [
-    'BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Better//Da um Toque//PT','CALSCALE:GREGORIAN',
-    'BEGIN:VEVENT',
-    'UID:'+Date.now()+'@daumtoque', 'DTSTAMP:'+dtstamp,
-    'DTSTART:'+ev.start, 'DTEND:'+ev.end, 'RRULE:'+ev.rrule,
-    'SUMMARY:'+ev.title, 'DESCRIPTION:'+ev.desc.replace(/,/g,'\\,'),
+    'BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Alumni by Better//Rosa em Dia//PT','CALSCALE:GREGORIAN',
+    'BEGIN:VEVENT','UID:'+Date.now()+'@rosaemdia','DTSTAMP:'+dtstamp,
+    'DTSTART:'+ev.start,'DTEND:'+ev.end,'RRULE:'+ev.rrule,
+    'SUMMARY:'+ev.title,'DESCRIPTION:'+ev.desc.replace(/,/g,'\\,'),
     'BEGIN:VALARM','TRIGGER:PT0M','ACTION:DISPLAY','DESCRIPTION:'+ev.title,'END:VALARM',
     'END:VEVENT','END:VCALENDAR'
   ].join('\r\n');
@@ -409,13 +531,11 @@ function downloadIcs(name, ev){
 $('#ics').onclick = e => {
   if (needDay()) return;
   const s = nextDate(day);
-  downloadIcs('toque-do-mes.ics', {start:stamp(s,8,0), end:stamp(s,8,10), rrule:'FREQ=MONTHLY;BYMONTHDAY='+day, title:TITLE, desc:DESC});
+  downloadIcs('autoexame-do-mes.ics', {start:stamp(s,8,0), end:stamp(s,8,10), rrule:'FREQ=MONTHLY;BYMONTHDAY='+day, title:TITLE, desc:DESC});
   done(e.currentTarget);
 };
-
-/* idade */
 function ageText(a){
-  if (a < 40) return ['Seu foco agora: conhecer o seu corpo.', 'O toque mensal e a consulta de rotina com o ginecologista já fazem muito. Se mãe, irmã ou filha teve câncer de mama, conte isso ao médico: pode ser indicado começar os exames mais cedo.'];
+  if (a < 40) return ['Seu foco agora: conhecer o seu corpo.', 'O autoexame mensal e a consulta de rotina com o ginecologista já fazem muito. Se mãe, irmã ou filha teve câncer de mama, conte isso ao médico: pode ser indicado começar os exames mais cedo.'];
   if (a < 50) return ['É uma boa hora para conversar sobre a mamografia.', 'A Sociedade Brasileira de Mastologia recomenda mamografia todo ano a partir dos 40. No SUS, nessa faixa, o exame pode ser feito a partir da conversa com o médico.'];
   if (a <= 74) return ['A mamografia entra no seu calendário.', 'No SUS, a recomendação é a cada 2 anos nessa faixa. A Sociedade Brasileira de Mastologia indica todo ano. Combine o intervalo ideal com o seu médico.'];
   return ['O plano é feito sob medida.', 'A partir dos 75, a frequência dos exames é decidida caso a caso com o médico, de acordo com a sua saúde.'];
@@ -429,85 +549,88 @@ $('#mamoBtn').onclick = e => {
   const n = new Date(); n.setMonth(n.getMonth()+1);
   const s = {y:n.getFullYear(), m:n.getMonth()+1, d:Math.min(n.getDate(),28)};
   downloadIcs('consulta-anual.ics', {start:stamp(s,9,0), end:stamp(s,9,15), rrule:'FREQ=YEARLY',
-    title:'Marcar consulta e conversar sobre a mamografia 🎀', desc:'Lembrete anual do Dá um Toque: '+APP_URL});
-  burst(e.currentTarget);
+    title:'Marcar consulta e conversar sobre a mamografia 🎀', desc:'Lembrete anual do Rosa em Dia: '+APP_URL});
+  burst(e.currentTarget); fala('combinado');
 };
 
-/* mito ou verdade */
+/* ================= mito ou verdade ================= */
 const Q = [
-  ['Só quem tem caso na família precisa se preocupar.', 'mito', 'A maioria dos casos acontece em pessoas sem histórico familiar. Os casos hereditários são algo entre 5% e 10%. Histórico conta, mas não é o único fator.'],
-  ['Homens também podem ter câncer de mama.', 'verdade', 'É raro, por volta de 1% dos casos, mas acontece. Caroço perto do mamilo é o sinal mais comum neles.'],
-  ['Todo caroço na mama é câncer.', 'mito', 'A maioria dos nódulos é benigna, como cistos e fibroadenomas. Mesmo assim, todo nódulo novo merece uma avaliação médica.'],
-  ['Mexer o corpo ajuda a diminuir o risco.', 'verdade', 'Atividade física, peso saudável e menos álcool estão entre os fatores que reduzem o risco. Bora aquela caminhada?'],
+  ['Só quem tem caso na família precisa se preocupar.', 'mito', 'A maioria dos casos acontece em pessoas sem histórico familiar. Os casos hereditários ficam entre 5% e 10%. O histórico conta, mas não é o único fator.'],
+  ['Homens também podem ter câncer de mama.', 'verdade', 'É raro, por volta de 1% dos casos, mas acontece. Um caroço perto do mamilo é o sinal mais comum neles.'],
+  ['Todo caroço na mama é câncer.', 'mito', 'A maioria dos nódulos é benigna, como cistos e fibroadenomas. Mesmo assim, todo nódulo novo merece avaliação médica.'],
+  ['Mexer o corpo ajuda a diminuir o risco.', 'verdade', 'Atividade física, peso saudável e menos álcool estão entre os fatores que reduzem o risco. Que tal aquela caminhada?'],
   ['Sutiã com aro e desodorante causam câncer.', 'mito', 'Não há evidência científica disso. Pode usar o seu sutiã favorito em paz.'],
-  ['A mamografia usa muita radiação e faz mal.', 'mito', 'A dose é baixa e o benefício de encontrar algo cedo é muito maior. O apertinho incomoda, mas dura poucos segundos.'],
-  ['Descoberto cedo, as chances de cura são altas.', 'verdade', 'Nos estágios iniciais, as chances de cura podem passar de 90%. É exatamente por isso que o toque e os exames importam.'],
+  ['A mamografia usa muita radiação e faz mal.', 'mito', 'A dose é baixa, e o benefício de encontrar algo cedo é muito maior. O apertinho incomoda, mas dura poucos segundos.'],
+  ['Descoberto cedo, as chances de cura são altas.', 'verdade', 'Nos estágios iniciais, as chances de cura podem passar de 90%. É exatamente por isso que o autoexame e os exames importam.'],
 ];
-let qi = 0, hits = 0;
+let qi = 0, hits = 0, answered = false;
 const deck = $('#deck');
 Q.forEach((q, i) => {
   const c = document.createElement('div'); c.className = 'qcard'; c.style.zIndex = 100 - i;
   c.innerHTML = `<div class="kicker">Carta ${i+1} de ${Q.length}</div><div class="q">${q[0]}</div>
-    <div class="reveal"><span class="verdict ${q[1]==='verdade'?'v-ok':'v-no'}">${q[1].toUpperCase()}</span><p>${q[2]}</p><p class="hit"></p></div>`;
+    <div class="reveal"><span class="verdict ${q[1]==='verdade'?'v-ok':'v-no'}">${q[1].toUpperCase()}</span><p>${q[2]}</p></div>`;
   deck.appendChild(c);
 });
 $('#dots').innerHTML = Q.map(() => '<i></i>').join('');
+const placar = () => $('#scoreTxt').textContent = hits + (hits===1?' acerto':' acertos');
 function paintDeck(){
   $$('.qcard').forEach((c, i) => {
-    c.classList.remove('back1','back2');
+    c.classList.remove('back1','back2','gone');
     if (i < qi) c.classList.add('gone');
     else if (i === qi+1) c.classList.add('back1');
     else if (i >= qi+2) c.classList.add('back2');
   });
   $$('#dots i').forEach((d, i) => d.classList.toggle('on', i < qi));
-  $('#scoreTxt').textContent = hits + (hits===1?' acerto':' acertos');
+  placar();
 }
-paintDeck();
-let answered = false;
+const btnsChute = () => $('#qBtns').innerHTML = '<button class="btn ghost" data-a="mito">Mito</button><button class="btn" data-a="verdade">Verdade</button>';
+btnsChute(); paintDeck();
 $('#qBtns').onclick = e => {
-  const b = e.target.closest('button'); if (!b) return;
-  const card = $$('.qcard')[qi];
-  if (qi >= Q.length){ qi = 0; hits = 0; $$('.qcard').forEach(c => c.classList.remove('done','gone')); setQBtns(); paintDeck(); return }
+  const b = e.target.closest('button'); if (!b || b.dataset.go) return;
+  const a = b.dataset.a;
+  if (a === 'restart'){ $('#qEnd')?.remove(); qi = 0; hits = 0; answered = false; $$('.qcard').forEach(c => c.classList.remove('done')); btnsChute(); paintDeck(); fala('mito'); return }
   if (!answered){
-    const ok = b.dataset.a === Q[qi][1]; if (ok){ hits++; burst(b) }
-    card.querySelector('.hit').textContent = ok ? 'Você acertou! 🎉' : 'Quase! Agora você já sabe.';
-    card.classList.add('done'); answered = true;
+    const ok = a === Q[qi][1]; if (ok){ hits++; burst(b); anima('pula') }
+    fala(ok ? 'acertou' : 'errou');
+    $$('.qcard')[qi].classList.add('done'); answered = true;
     $('#qBtns').innerHTML = `<button class="btn" data-a="next">${qi === Q.length-1 ? 'Ver resultado' : 'Próxima carta →'}</button>`;
-    $('#scoreTxt').textContent = hits + (hits===1?' acerto':' acertos');
+    placar();
   } else {
     answered = false; qi++; paintDeck();
     if (qi >= Q.length){
       const end = document.createElement('div'); end.className = 'qcard'; end.id = 'qEnd'; end.style.zIndex = 1;
       end.innerHTML = `<div class="kicker">Resultado</div><div class="q">${hits} de ${Q.length}. ${hits>=6?'Você manda muito.':hits>=4?'Muito bem!':'Agora você sabe mais que ontem.'}</div>
-        <p style="color:var(--muted);font-size:14.5px">Que tal passar isso adiante? Mande o app para alguém e dê um toque.</p>`;
+        <p style="color:var(--muted);font-size:14.5px">Que tal passar adiante? Mande o app para alguém que você ama.</p>`;
       deck.appendChild(end);
-      $('#qBtns').innerHTML = `<button class="btn ghost" data-a="restart">Jogar de novo</button><button class="btn" data-go="dar">Dar um toque</button>`;
-    } else setQBtns();
+      $('#qBtns').innerHTML = `<button class="btn ghost" data-a="restart">Jogar de novo</button><button class="btn" data-go="lembrar">Lembrar alguém</button>`;
+      fala('fimQuiz'); anima('pula');
+    } else btnsChute();
   }
 };
-function setQBtns(){
-  const end = $('#qEnd'); if (end) end.remove();
-  $('#qBtns').innerHTML = '<button class="btn ghost" data-a="mito">Mito</button><button class="btn" data-a="verdade">Verdade</button>';
-}
 
-/* dar um toque */
+/* ================= lembrar alguém ================= */
 const TONES = [
-  ['Carinhoso', 'Oi! Passando só para te dar um toque 💗 Este mês é Outubro Rosa e eu lembrei de você. Já se tocou hoje? Leva 2 minutos e tem um guia bem fofo aqui: '],
-  ['Divertido', 'Toc toc! 🎀 É o seu lembrete oficial do Outubro Rosa. Dois minutinhos no banho, um cronômetro que te guia e pronto. Vai lá: '],
-  ['Direto', 'Lembrete do Outubro Rosa: já marcou sua consulta ou mamografia deste ano? Aqui tem o passo a passo do toque e um lembrete para a agenda: '],
+  ['Carinhoso', 'Oi! Lembrei de você neste Outubro Rosa 💗 Já fez o seu autoexame este mês? Leva dois minutos, e aqui tem um guia bem simples: '],
+  ['Divertido', 'Toc, toc! 🎀 É o seu lembrete oficial do Outubro Rosa, com direito a mascote. Dois minutinhos de autoexame e um cronômetro que guia você: '],
+  ['Direto', 'Lembrete do Outubro Rosa: já marcou sua consulta ou mamografia deste ano? Aqui tem o passo a passo do autoexame e um lembrete para a agenda: '],
 ];
 let tone = 0;
 $('#tones').innerHTML = TONES.map((t, i) => `<button class="tone${i?'':' sel'}" data-t="${i}"><b>${t[0]}</b>${t[1]}…</button>`).join('');
 $('#tones').onclick = e => { const b = e.target.closest('.tone'); if (!b) return; tone = +b.dataset.t; $$('.tone').forEach(x => x.classList.toggle('sel', x===b)) };
 const msg = () => TONES[tone][1] + APP_URL;
 let count = store.get('count', 0); $('#count').textContent = count;
-function bump(btn){ count++; store.set('count', count); $('#count').textContent = count; burst(btn) }
+function bump(btn){ count++; store.set('count', count); $('#count').textContent = count; burst(btn); fala('enviou'); anima('pula') }
 $('#zap').onclick = e => { window.open('https://wa.me/?text=' + encodeURIComponent(msg()), '_blank', 'noopener'); bump(e.currentTarget) };
 $('#copy').onclick = async e => {
   const b = e.currentTarget;
   try { await navigator.clipboard.writeText(msg()); b.textContent = 'Copiado! ✓' } catch(err){ b.textContent = 'Não deu para copiar' }
   bump(b); setTimeout(() => b.textContent = 'Copiar mensagem', 1800);
 };
+
+/* início */
+mostra('aceno'); anima('entra');
+const h0 = location.hash.slice(1);
+go(FALA_DA_TELA[h0] ? h0 : 'inicio');
 </script>
 </body>
 </html>
