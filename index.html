@@ -53,6 +53,8 @@ h1 em,h2 em{font-style:normal;color:var(--rosa)}
 @keyframes respira{50%{transform:scale(1.012,.988)}}
 .alia-mov.andando .alia-passo{animation:passo .36s ease-in-out infinite}
 .alia-mov.correndo .alia-passo{animation:corre .24s ease-in-out infinite}
+.alia-mov.saltita .alia-passo{animation:saltita .42s cubic-bezier(.3,.7,.4,1) infinite}
+@keyframes saltita{0%,100%{transform:translateY(0) scale(1.04,.95)}45%{transform:translateY(-22px) scale(.97,1.04)}}
 @keyframes passo{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-7px) rotate(2.5deg)}}
 @keyframes corre{0%,100%{transform:translateY(0) rotate(5deg)}50%{transform:translateY(-11px) rotate(8deg)}}
 .alia-mov.pula{animation:pula .6s cubic-bezier(.3,.7,.4,1)}
@@ -317,13 +319,13 @@ const store = {
 const APP_URL = location.origin + location.pathname;
 
 /* ================= ALIA ================= */
-// Arte provisória: poses do Ali até chegarem as da Alia (mesmo formato: corpo, -fechada sem boca, -boca por cima)
-const ARTE = 'img/ali/';
+// poses da Alia (tools/*-alia.cjs): corpo, -fechada (rosto sem boca) e -boca por cima
+const ARTE = 'img/alia/';
 // w, h, base dos pés, boca x/y/w/h/lábio (px da imagem)
-const POSES = {"coracao":[290,561,560.4,70.4,110,143.2,68.4,9.6],"aceno":[384,584,560.8,165.2,118.8,137.6,80,9.6],"apontaBaixo":[385,588,560.8,141.2,116,136.4,77.6,9.6],"joinha":[372,579,560.4,85.6,108.4,140,86.4,9.6],"pensa":[258,605,582.4,62.4,140.8,137.6,82,9.6],"abre":[536,583,560.8,230,118.4,138,79.6,9.6],"dedo":[391,586,562.8,153.6,108.4,132.4,83.2,9.6],"anda":[284,562,561.2,82,104.8,136.8,80.4,9.6],"corre":[378,562,560.8,147.2,130.8,148.8,80,9.6],"andaJoinha":[346,563,560.8,158.8,116,134,82,9.6],"vibra":[466,618,601.2,149.2,130,135.6,84.8,9.6]};
+const POSES = {"aceno":[306,563,561.2,77.2,136.4,128,70,9.6],"aponta":[294,563,562,73.6,139.6,142,70,9.6],"anda":[211,560,558.8,90,129.2,94,59,9.6],"vibra":[380,589,584.8,108.4,138.4,145,74,9.6],"ideia":[370,510,502.8,94.8,141.6,126,61,9.6],"corre":[348,556,553.6,146.4,135.6,101,59,9.6],"abre":[332,570,567.6,36.4,138.4,153,72,9.6],"deitada":[433,314,312.4,31.2,144.8,134,57,9.6],"chama":[295,561,560,80.8,118,117,72,9.6]};
 const CORPO = 150, ESC = CORPO / 561;
-const POSE_DA_FALA = {oi:'aceno',pergunta:'abre',jaFiz:'joinha',aindaNao:'coracao',comoFaz:'apontaBaixo',autoexame:'apontaBaixo',cronometro:'dedo',terminou:'vibra',lembrete:'apontaBaixo',combinado:'joinha',mito:'pensa',acertou:'vibra',errou:'pensa',fimQuiz:'coracao',lembrar:'coracao',enviou:'abre',cutuca1:'vibra',cutuca2:'aceno',cutuca3:'coracao'};
-const PARADA = 'coracao';
+const POSE_DA_FALA = {oi:'aceno',pergunta:'abre',jaFiz:'vibra',aindaNao:'chama',comoFaz:'aponta',autoexame:'chama',cronometro:'ideia',terminou:'vibra',lembrete:'aponta',combinado:'vibra',mito:'ideia',acertou:'vibra',errou:'ideia',fimQuiz:'abre',lembrar:'chama',enviou:'abre',cutuca1:'vibra',cutuca2:'aceno',cutuca3:'chama'};
+const PARADA = 'abre';
 Object.keys(POSES).forEach(p => ['', '-boca', '-fechada'].forEach(v => { const i = new Image(); i.src = `${ARTE}${p}${v}.webp` }));
 
 const alia = $('#alia'), vira = $('#aliaVira'), mov = $('#aliaMov'), img = $('#aliaImg'), bocaImg = $('#aliaBoca'), corpo = $('#aliaCorpo'), balao = $('#balao');
@@ -339,7 +341,7 @@ function mostra(p, abre=null){
   Object.assign(corpo.style, {width:w*ESC+'px', height:h*ESC+'px', bottom:(-(h-base)*ESC + 6)+'px'});
   bocaImg.style.display = abre===null ? 'none' : 'block';
   if (abre !== null){
-    const k = 0.62 + 0.38 * Math.max(0, Math.min(1, abre)); // nunca fecha de todo
+    const k = 0.72 + 0.28 * Math.max(0, Math.min(1, abre)); // nunca fecha de todo (embaixo fica o remendo do rosto)
     Object.assign(bocaImg.style, {left:bx*ESC+'px', top:by*ESC+'px', width:bw*ESC+'px', height:bh*ESC+'px', transformOrigin:`50% ${lab*ESC}px`, transform:`scaleY(${k})`});
   }
 }
@@ -362,16 +364,16 @@ function andaPara(alvo, correndo=false){
     passos?.cancel(); passos = null;
     const dist = alvo - de;
     if (Math.abs(dist) < 4){ poe(alvo); return res() }
-    vira.style.transform = dist < 0 ? 'scaleX(-1)' : '';
-    mostra(correndo ? 'corre' : 'anda');
-    mov.classList.toggle('andando', !correndo); mov.classList.toggle('correndo', correndo);
+    const esq = dist < 0;
+    mostra(esq ? 'vibra' : correndo ? 'corre' : 'anda');
+    mov.classList.toggle('andando', !correndo && !esq); mov.classList.toggle('correndo', correndo && !esq); mov.classList.toggle('saltita', esq);
     const dur = Math.max(320, Math.abs(dist) / (correndo ? 480 : 190) * 1000);
     x = alvo;
     const a = passos = alia.animate([{transform:`translateX(${de}px)`},{transform:`translateX(${alvo}px)`}], {duration:dur, easing:correndo ? 'cubic-bezier(.4,0,.3,1)' : 'linear'});
     a.onfinish = () => {
       if (passos !== a) return;
       passos = null; alia.style.transform = `translateX(${alvo}px)`;
-      mov.classList.remove('andando','correndo'); vira.style.transform = '';
+      mov.classList.remove('andando','correndo','saltita');
       if (correndo) anima('freia');
       res();
     };
@@ -459,8 +461,8 @@ async function descansa(meu){
 // troca de tela: sai correndo e entra pelo outro lado
 async function entraNaTela(id, primeira){
   const meu = ++falaId; limpa(); escondeBalao(); ocupada = true;
-  if (!primeira){ await andaPara(LUGAR.foraEsq(), true); if (meu !== falaId) return }
-  poe(LUGAR.foraDir());
+  if (!primeira){ await andaPara(LUGAR.foraDir(), true); if (meu !== falaId) return }
+  poe(LUGAR.foraEsq());
   await andaPara(LUGAR.centro(), true); if (meu !== falaId) return;
   FALA_DA_TELA[id] ? FALA_DA_TELA[id]() : descansa(meu);
 }
@@ -471,14 +473,10 @@ setInterval(async () => {
   ultimoMexe = Date.now() + 2000;
   const meu = falaId, r = Math.random();
   const volta = ms => setTimeout(() => meu===falaId && !ocupada && mostra(PARADA), ms);
-  if (r < .3) anima('pula');
-  else if (r < .55){ mostra('aceno'); volta(1400) }
-  else if (r < .8){
-    await andaPara(LUGAR.canto() - 70); if (meu !== falaId || ocupada) return;
-    mostra('andaJoinha');
-    setTimeout(async () => { if (meu !== falaId || ocupada) return; await andaPara(LUGAR.canto()); if (meu===falaId && !ocupada) mostra(PARADA) }, 900);
-  }
-  else { mostra('pensa'); volta(1600) }
+  if (r < .25) anima('pula');
+  else if (r < .5){ mostra('aceno'); volta(1500) }
+  else if (r < .75){ mostra('deitada'); volta(4200) }   // deita e fica de queixo nas mãos
+  else { mostra('ideia'); volta(3200) }                  // senta nos livros com o notebook
 }, 1000);
 // cutucar a Alia
 let cutucadas = 0;
